@@ -1,10 +1,254 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja - Plantas</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- CSS customizado -->
+  <link rel="stylesheet" href="/static/medicinais.css">
+  <style>
+    body { display: flex; flex-direction: column; min-height: 100vh; margin: 0; }
+    .container-fluid { flex: 1; }
+  </style>
 </head>
 <body>
-$END$
+
+<!-- Navbar -->
+<nav class="navegar navbar d-flex flex-row justify-content-between px-3">
+  <div class="d-flex flex-row align-items-center">
+    <i class="icon bi bi-list"></i>
+    <ul class="navbar-nav d-flex flex-row">
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="pagina_inicial.html">Página Inicial</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="login.html">Login</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="cadastros.html">Cadastros</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="loja.html">Loja</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="medicinais.html">Medicinais</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="blog.html">Blog</a></li>
+    </ul>
+  </div>
+  <div class="d-flex align-items-center">
+    <i class="icon bi bi-cart"></i>
+    <a class="navbar-brand ps-3"><img src="/imagem/logo.svg" width="70px" alt="Logo"></a>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- Sidebar -->
+    <aside class="col-md-2 aside-tribal p-3">
+      <a class="nav-link text-white" href="medicinais.html"><h5 class="fw-bold text-white">Categorias</h5></a>
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="fw-bold nav-link text-white" href="filtrar_med_ervas.html">Ervas</a></li>
+        <li class="nav-item"><a class="fw-bold nav-link text-primary" href="filtrar_med_plantas.html">Plantas</a></li>
+      </ul>
+    </aside>
+
+    <!-- Produtos -->
+    <main id="produtos-lista" class="col-md-10 p-4">
+      <div class="row g-4">
+
+        <!-- Card 1 -->
+        <div class="col-12">
+          <div class="card-medicinal shadow-sm d-flex align-items-center">
+            <div class="img-container">
+              <img src="https://thumbor.cartpanda.com/CWHQ8qhuoeRAPZpZIltP38u4nvY=/2048x2048/https://assets.mycartpanda.com/static/products_images/2d/71/e7/1696904884718.jpeg?v=13252247658"
+                   alt="Aroeira (Schinus terebinthifolius)">
+            </div>
+            <div class="conteudo-card">
+              <h5 class="titulo-medicinal">Aroeira (Schinus terebinthifolius)</h5>
+              <p><strong>Uso:</strong> Anti-inflamatório, cicatrizante e adstringente;</p>
+              <p><strong>Parte utilizada:</strong> Casca;</p>
+              <p><strong>Forma de uso:</strong> Infusão da casca para lavagens e banhos tópicos.</p>
+              <a href="#" class="btn btn-success btn-sm ver-produto"
+                 data-nome="Aroeira (Schinus terebinthifolius)"
+                 data-preco="R$ 35,00"
+                 data-imagem="https://thumbor.cartpanda.com/CWHQ8qhuoeRAPZpZIltP38u4nvY=/2048x2048/https://assets.mycartpanda.com/static/products_images/2d/71/e7/1696904884718.jpeg?v=13252247658"
+                 data-uso="Anti-inflamatório, cicatrizante e adstringente;"
+                 data-parte="Casca"
+                 data-forma="Infusão da casca para lavagens e banhos tópicos."
+                 data-descricao="A Aroeira é uma planta medicinal usada como anti-inflamatório, cicatrizante e adstringente.">Ver Produto</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-12">
+          <div class="card-medicinal shadow-sm d-flex align-items-center">
+            <div class="img-container">
+              <img src="https://www.drogaraia.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F10987748.webp&w=3840&q=40"
+                   alt="Cajueiro (Anacardium occidentale)">
+            </div>
+            <div class="conteudo-card">
+              <h5 class="titulo-medicinal">Cajueiro (Anacardium occidentale)</h5>
+              <p><strong>Uso:</strong> Anti-inflamatório, adstringente;</p>
+              <p><strong>Parte utilizada:</strong> Casca, folhas, fruto;</p>
+              <p><strong>Forma de uso:</strong> Infusões e sucos.</p>
+              <a href="#" class="btn btn-success btn-sm ver-produto"
+                 data-nome="Cajueiro (Anacardium occidentale)"
+                 data-preco="R$ 32,00"
+                 data-imagem="https://www.drogaraia.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F10987748.webp&w=3840&q=40"
+                 data-uso="Anti-inflamatório, adstringente"
+                 data-parte="Casca, folhas, fruto"
+                 data-forma="Infusões e sucos"
+                 data-descricao="O Cajueiro é usado popularmente como anti-inflamatório e adstringente.">Ver Produto</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-12">
+          <div class="card-medicinal shadow-sm d-flex align-items-center">
+            <div class="img-container">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbsQjMVzY_TTP6fU2HVprBwTW4oBirQJFDf-gC5a8Gct0fqWCNOhrzqmRGKbseG2MkNeU&usqp=CAU"
+                   alt="Carapanaúba (Licania spp.)">
+            </div>
+            <div class="conteudo-card">
+              <h5 class="titulo-medicinal">Carapanaúba (Licania spp.)</h5>
+              <p><strong>Uso:</strong> Tratamento de sintomas virais;</p>
+              <p><strong>Parte utilizada:</strong> Casca;</p>
+              <p><strong>Forma de uso:</strong> Infusão combinada com outros ingredientes.</p>
+              <a href="#" class="btn btn-success btn-sm ver-produto"
+                 data-nome="Carapanaúba (Licania spp.)"
+                 data-preco="R$ 30,00"
+                 data-imagem="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbsQjMVzY_TTP6fU2HVprBwTW4oBirQJFDf-gC5a8Gct0fqWCNOhrzqmRGKbseG2MkNeU&usqp=CAU"
+                 data-uso="Tratamento de sintomas virais"
+                 data-parte="Casca"
+                 data-forma="Infusão combinada com outros ingredientes"
+                 data-descricao="A Carapanaúba é usada em algumas comunidades indígenas para tratar sintomas virais.">Ver Produto</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col-12">
+          <div class="card-medicinal shadow-sm d-flex align-items-center">
+            <div class="img-container">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAzxYsJxTr5fFiqZbng_kXtiPogdD7OvWoOA&s"
+                   alt="Copaíba (Copaifera spp.)">
+            </div>
+            <div class="conteudo-card">
+              <h5 class="titulo-medicinal">Copaíba (Copaifera spp.)</h5>
+              <p><strong>Uso:</strong> Anti-inflamatório, cicatrizante, antimicrobiano;</p>
+              <p><strong>Parte utilizada:</strong> Óleo da casca;</p>
+              <p><strong>Forma de uso:</strong> Uso tópico ou preparos específicos.</p>
+              <a href="#" class="btn btn-success btn-sm ver-produto"
+                 data-nome="Copaíba (Copaifera spp.)"
+                 data-preco="R$ 38,00"
+                 data-imagem="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAzxYsJxTr5fFiqZbng_kXtiPogdD7OvWoOA&s"
+                 data-uso="Anti-inflamatório, cicatrizante, antimicrobiano"
+                 data-parte="Óleo da casca"
+                 data-forma="Uso tópico ou preparos específicos"
+                 data-descricao="A Copaíba é utilizada em feridas, infecções e problemas de pele devido às suas propriedades anti-inflamatórias e antimicrobianas.">Ver Produto</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="col-12">
+          <div class="card-medicinal shadow-sm d-flex align-items-center">
+            <div class="img-container">
+              <img src="https://acdn-us.mitiendanube.com/stores/003/981/942/products/espinheira-santa-50g-90fbae77a1ddee97ec17071693292597-1024-1024.webp"
+                   alt="Espinheira-santa (Maytenus ilicifolia)">
+            </div>
+            <div class="conteudo-card">
+              <h5 class="titulo-medicinal">Espinheira-santa (Maytenus ilicifolia)</h5>
+              <p><strong>Uso:</strong> Problemas estomacais;</p>
+              <p><strong>Parte utilizada:</strong> Folhas;</p>
+              <p><strong>Forma de uso:</strong> Chá preparado com folhas secas.</p>
+              <a href="#" class="btn btn-success btn-sm ver-produto"
+                 data-nome="Espinheira-santa (Maytenus ilicifolia)"
+                 data-preco="R$ 28,00"
+                 data-imagem="https://acdn-us.mitiendanube.com/stores/003/981/942/products/espinheira-santa-50g-90fbae77a1ddee97ec17071693292597-1024-1024.webp"
+                 data-uso="Problemas estomacais"
+                 data-parte="Folhas"
+                 data-forma="Chá preparado com folhas secas"
+                 data-descricao="A Espinheira-santa é tradicionalmente usada para tratar gastrite e úlceras.">Ver Produto</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Seção detalhe -->
+    <section id="detalhe-produto" class="col-md-10 p-4 d-none">
+      <div class="card p-4 shadow" style="background-color: #a94442; color: white; border-radius: 15px;">
+        <div class="d-flex justify-content-between align-items-start mb-3">
+          <button id="btn-voltar" class="btn btn-warning">⬅ Voltar</button>
+          <span id="detalhe-preco" class="fw-bold" style="font-size:1.1rem;"></span>
+        </div>
+        <div class="d-flex flex-column flex-md-row align-items-start gap-4">
+          <img id="detalhe-img" class="rounded detalhe-img" src="" alt="imagem produto" style="width:280px; height:280px; object-fit:cover;">
+          <div class="flex-grow-1 text-white">
+            <h3 id="detalhe-titulo" class="mb-2" style="color:#ffd700;"></h3>
+            <p><strong>Uso:</strong> <span id="detalhe-uso"></span></p>
+            <p><strong>Parte utilizada:</strong> <span id="detalhe-parte"></span></p>
+            <p><strong>Forma de uso:</strong> <span id="detalhe-forma"></span></p>
+            <p><strong>Descrição:</strong> <span id="detalhe-descricao"></span></p>
+            <button class="btn btn-success mt-3">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- Rodapé -->
+<footer class="footer text-center footer_cor">
+  <a class="text-light" href="https://www.whatsapp.com/?lang=pt_BR"><i class="meu-icone bi bi-whatsapp"></i></a>
+  <a class="text-light" href="https://www.instagram.com/"><i class="meu-icone bi bi-instagram"></i></a>
+  <a class="text-light" href="https://www.facebook.com/?locale=pt_BR"><i class="meu-icone bi bi-facebook"></i></a>
+  <p class="text-light">&copy; 2025 - Raízes do Brasil. Todos os direitos reservados.</p>
+</footer>
+
+<!-- Script JS -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const sectionLista = document.getElementById('produtos-lista');
+  const sectionDetalhe = document.getElementById('detalhe-produto');
+
+  const img = document.getElementById('detalhe-img');
+  const titulo = document.getElementById('detalhe-titulo');
+  const uso = document.getElementById('detalhe-uso');
+  const parte = document.getElementById('detalhe-parte');
+  const forma = document.getElementById('detalhe-forma');
+  const preco = document.getElementById('detalhe-preco');
+  const descricao = document.getElementById('detalhe-descricao');
+  const btnVoltar = document.getElementById('btn-voltar');
+
+  sectionLista.addEventListener('click', function(e) {
+    if(e.target && e.target.classList.contains('ver-produto')) {
+      e.preventDefault();
+      const d = e.target.dataset;
+
+      img.src = d.imagem || '';
+      titulo.textContent = d.nome || '';
+      uso.textContent = d.uso || '';
+      parte.textContent = d.parte || '';
+      forma.textContent = d.forma || '';
+      preco.textContent = d.preco || '';
+      descricao.textContent = d.descricao || '';
+
+      sectionLista.classList.add('d-none');
+      sectionDetalhe.classList.remove('d-none');
+      sectionDetalhe.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+
+  btnVoltar.addEventListener('click', function() {
+    sectionDetalhe.classList.add('d-none');
+    sectionLista.classList.remove('d-none');
+  });
+});
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,10 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raízes do Brasil - Instrumentos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/loja.css">
 </head>
 <body>
-$END$
+
+<!-- Navbar -->
+<nav class="navegar navbar d-flex flex-row justify-content-between px-3">
+  <div class="d-flex flex-row align-items-center">
+    <i class="icon bi bi-list"></i>
+    <ul class="navbar-nav d-flex flex-row">
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="pagina_inicial.html">Página Inicial</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="login.html">Login</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="cadastros.html">Cadastros</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="loja.html">Loja</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="medicinais.html">Medicinais</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="blog.html">Blog</a></li>
+    </ul>
+  </div>
+  <div class="d-flex align-items-center">
+    <i class="icon bi bi-cart"></i>
+    <a class="navbar-brand ps-3"><img src="/imagem/logo.svg" width="70px" alt="Logo"></a>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- Sidebar -->
+    <aside class="col-md-2 aside-tribal p-3">
+      <h5 class="fw-bold"><a href="loja.html" class="text-white text-decoration-none">Categorias</a></h5>
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link text-white" href="filtrar_loja_cocares.html">Cocares</a></li>
+        <li class="nav-item"><a class="nav-link active" href="filtrar_loja_instrumentos.html">Instrumentos</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="filtrar_loja_potes.html">Potes</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="filtrar_loja_bonecos.html">Bonecos</a></li>
+      </ul>
+    </aside>
+
+    <!-- Produtos -->
+    <main class="col-md-10 p-4">
+      <div class="row g-3">
+
+        <!-- Produto 1 -->
+        <div class="col-md-3">
+          <div class="card text-center shadow-sm">
+            <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-m43derabzublfb" class="card-img-top" alt="3 Chocalho barul">
+            <div class="card-body">
+              <h6 class="card-title">3 Chocalho barul</h6>
+              <p class="card-text">R$ 198,00</p>
+              <a href="#" class="btn btn-success btn-sm"
+                 onclick="verProduto('3 Chocalho barul','R$ 198,00','https://down-br.img.susercontent.com/file/br-11134207-7r98o-m43derabzublfb','Trio de chocalhos artesanais, produzidos com materiais naturais para som autêntico.')"
+                 data-bs-toggle="modal" data-bs-target="#produtoModal">Ver Produto</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produto 2 -->
+        <div class="col-md-3">
+          <div class="card text-center shadow-sm">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWYV284_IZ88F0DSGMXQpTm9JmERk_QADf_Q&s" class="card-img-top" alt="Tambor de música">
+            <div class="card-body">
+              <h6 class="card-title">Tambor de Música</h6>
+              <p class="card-text">R$ 304,00</p>
+              <a href="#" class="btn btn-success btn-sm"
+                 onclick="verProduto('Tambor de Música','R$ 304,00','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWYV284_IZ88F0DSGMXQpTm9JmERk_QADf_Q&s','Tambor indígena artesanal, ideal para rituais e apresentações culturais.')"
+                 data-bs-toggle="modal" data-bs-target="#produtoModal">Ver Produto</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produto 3 -->
+        <div class="col-md-3">
+          <div class="card text-center shadow-sm">
+            <img src="https://cdn.shopify.com/s/files/1/0356/0233/3836/files/flauta-doce-aborigene-artesanal-madeira-rustica-artesanato-indigena-indonesia-bali_jpg_grande.jpg" class="card-img-top" alt="Flauta Som">
+            <div class="card-body">
+              <h6 class="card-title">Flauta Som</h6>
+              <p class="card-text">R$ 68,90</p>
+              <a href="#" class="btn btn-success btn-sm"
+                 onclick="verProduto('Flauta Som','R$ 68,90','https://cdn.shopify.com/s/files/1/0356/0233/3836/files/flauta-doce-aborigene-artesanal-madeira-rustica-artesanato-indigena-indonesia-bali_jpg_grande.jpg','Flauta artesanal de madeira, produzida com técnicas tradicionais para som autêntico.')"
+                 data-bs-toggle="modal" data-bs-target="#produtoModal">Ver Produto</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produto 4 -->
+        <div class="col-md-3">
+          <div class="card text-center shadow-sm">
+            <img src="https://www.manio.com.br/cdn/shop/files/DSC7957www.rafaelberezinski.com.jpg?v=1714683766&width=1445" class="card-img-top" alt="Maracá">
+            <div class="card-body">
+              <h6 class="card-title">Maracá</h6>
+              <p class="card-text">R$ 80,65</p>
+              <a href="#" class="btn btn-success btn-sm"
+                 onclick="verProduto('Maracá','R$ 80,65','https://www.manio.com.br/cdn/shop/files/DSC7957www.rafaelberezinski.com.jpg?v=1714683766&width=1445','Maracá artesanal, utilizado em rituais e celebrações tradicionais.')"
+                 data-bs-toggle="modal" data-bs-target="#produtoModal">Ver Produto</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produto 5 -->
+        <div class="col-md-3">
+          <div class="card text-center shadow-sm">
+            <img src="https://www.mvim.com.br/wp-content/uploads/2020/05/mvim_dc_ae_0073_01-581x469.jpg" class="card-img-top" alt="Trompá Indígena">
+            <div class="card-body">
+              <h6 class="card-title">Trompá Indígena</h6>
+              <p class="card-text">R$ 42,20</p>
+              <a href="#" class="btn btn-success btn-sm"
+                 onclick="verProduto('Trompá Indígena','R$ 42,20','https://www.mvim.com.br/wp-content/uploads/2020/05/mvim_dc_ae_0073_01-581x469.jpg','Trompá indígena artesanal, ideal para sons autênticos e apresentações culturais.')"
+                 data-bs-toggle="modal" data-bs-target="#produtoModal">Ver Produto</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Modal Produto -->
+<div class="modal fade" id="produtoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content" style="background-color:#a94442; border-radius:15px; color:white;">
+      <div class="modal-header" style="border-bottom:none;">
+        <h5 id="produtoNome" style="font-weight:bold;"></h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <img id="produtoImagem" src="" alt="" class="img-fluid" style="border-radius:10px;">
+          </div>
+          <div class="col-md-6">
+            <p id="produtoPreco" style="font-weight:bold;"></p>
+            <p id="produtoDescricao"></p>
+            <button class="btn btn-light">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Rodapé -->
+<footer class="footer text-center footer_cor">
+    <a class="text-light" href="https://www.whatsapp.com/?lang=pt_BR"><i class="meu-icone bi bi-whatsapp"></i></a>
+    <a class="text-light" href="https://www.instagram.com/"><i class="meu-icone bi bi-instagram"></i></a>
+    <a class="text-light" href="https://www.facebook.com/?locale=pt_BR"><i class="meu-icone bi bi-facebook"></i></a>
+    <p class="text-light">&copy; 2025 - Raízes do Brasil. Todos os direitos reservados.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function verProduto(nome, preco, imagem, descricao) {
+  document.getElementById('produtoNome').innerText = nome;
+  document.getElementById('produtoPreco').innerText = preco;
+  document.getElementById('produtoImagem').src = imagem;
+  document.getElementById('produtoDescricao').innerText = descricao;
+}
+</script>
+
 </body>
 </html>

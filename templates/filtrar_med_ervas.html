@@ -1,10 +1,213 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja - Ervas</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- CSS customizado -->
+  <link rel="stylesheet" href="/static/medicinais.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container-fluid {
+      flex: 1;
+    }
+  </style>
 </head>
 <body>
-$END$
+
+<!-- Navbar -->
+<nav class="navegar navbar d-flex flex-row justify-content-between px-3">
+  <div class="d-flex flex-row align-items-center">
+    <i class="icon bi bi-list"></i>
+    <ul class="navbar-nav d-flex flex-row">
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="pagina_inicial.html">Página Inicial</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="login.html">Login</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="cadastros.html">Cadastros</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="loja.html">Loja</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="medicinais.html">Medicinais</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="blog.html">Blog</a></li>
+    </ul>
+  </div>
+  <div class="d-flex align-items-center">
+    <i class="icon bi bi-cart"></i>
+    <a class="navbar-brand ps-3"><img src="/imagem/logo.svg" width="70px" alt="Logo"></a>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- Sidebar -->
+    <aside class="col-md-2 aside-tribal p-3">
+      <a class="nav-link text-white" href="medicinais.html"><h5 class="fw-bold text-white">Categorias</h5></a>
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="fw-bold nav-link text-primary" href="filtrar_med_ervas.html">Ervas</a></li>
+        <li class="nav-item"><a class="fw-bold nav-link text-white" href="filtrar_med_plantas.html">Plantas</a></li>
+      </ul>
+    </aside>
+
+    <!-- Produtos -->
+    <main id="produtos-lista" class="col-md-10 p-4">
+      <div class="row g-4">
+
+        <!-- Card 1 -->
+        <div class="col-12">
+          <div class="card-medicinal shadow-sm d-flex align-items-center">
+            <div class="img-container">
+              <img src="https://www.drogariaminasbrasil.com.br/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/image/2833324ce/xarope-guaco-edulito-c-120ml-herbarium.jpg"
+                   alt="Guaco (Mikania glomerata)">
+            </div>
+            <div class="conteudo-card">
+              <h5 class="titulo-medicinal">Guaco (Mikania glomerata)</h5>
+              <p><strong>Uso:</strong> Expectorante e broncodilatador, utilizado para tratar tosse e problemas respiratórios;</p>
+              <p><strong>Parte utilizada:</strong> Folhas;</p>
+              <p><strong>Forma de uso:</strong> Chá preparado com as folhas.</p>
+              <a href="#" class="btn btn-success btn-sm ver-produto"
+                 data-nome="Guaco (Mikania glomerata)"
+                 data-preco="R$ 25,00"
+                 data-imagem="https://www.drogariaminasbrasil.com.br/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/image/2833324ce/xarope-guaco-edulito-c-120ml-herbarium.jpg"
+                 data-uso="Expectorante e broncodilatador, utilizado para tratar tosse e problemas respiratórios."
+                 data-parte="Folhas"
+                 data-forma="Chá preparado com as folhas."
+                 data-descricao="O Guaco é conhecido por suas propriedades expectorantes e broncodilatadoras, sendo tradicionalmente utilizado para aliviar tosse e problemas respiratórios.">Ver Produto</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-12">
+          <div class="card-medicinal shadow-sm d-flex align-items-center">
+            <div class="img-container">
+              <img src="https://cdn.sistemawbuy.com.br/arquivos/5b85fd4dd0db6fccf5e01942de1daab1/produtos/671e9f9ec784c/jambu-tintura-de-jambu-extrato-fitoterapia-homeopatia-extrato-de-jambu-ervas-medicinais-acmella-oleracea-671e9f9f597b3.webp"
+                   alt="Jambu (Acmella oleracea)">
+            </div>
+            <div class="conteudo-card">
+              <h5 class="titulo-medicinal">Jambu (Acmella oleracea)</h5>
+              <p><strong>Uso:</strong> Usos variados, como contra inflamações e como adstringente;</p>
+              <p><strong>Parte utilizada:</strong> Cascas, folhas, fruto;</p>
+              <p><strong>Forma de uso:</strong> Preparos diversos, como infusões e sucos.</p>
+              <a href="#" class="btn btn-success btn-sm ver-produto"
+                 data-nome="Jambu (Acmella oleracea)"
+                 data-preco="R$ 32,00"
+                 data-imagem="https://cdn.sistemawbuy.com.br/arquivos/5b85fd4dd0db6fccf5e01942de1daab1/produtos/671e9f9ec784c/jambu-tintura-de-jambu-extrato-fitoterapia-homeopatia-extrato-de-jambu-ervas-medicinais-acmella-oleracea-671e9f9f597b3.webp"
+                 data-uso="Usos variados, como contra inflamações e como adstringente."
+                 data-parte="Cascas, folhas, fruto"
+                 data-forma="Preparos diversos, como infusões e sucos."
+                 data-descricao="O Jambu é conhecido por causar uma leve dormência na boca, sendo usado em receitas típicas e também na medicina tradicional para combater inflamações e estimular a circulação.">Ver Produto</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-12">
+          <div class="card-medicinal shadow-sm d-flex align-items-center">
+            <div class="img-container">
+              <img src="https://acdn-us.mitiendanube.com/stores/002/513/867/products/211-5b2b5a7c647e3c6e6b16866682749024-480-0.png"
+                   alt="Mastruz (Dysphania ambrosioides)">
+            </div>
+            <div class="conteudo-card">
+              <h5 class="titulo-medicinal">Mastruz (Dysphania ambrosioides)</h5>
+              <p><strong>Uso:</strong> Vermífugo e anti-inflamatório;</p>
+              <p><strong>Parte utilizada:</strong> Folhas;</p>
+              <p><strong>Forma de uso:</strong> Macerado para uso tópico ou em chás.</p>
+              <a href="#" class="btn btn-success btn-sm ver-produto"
+                 data-nome="Mastruz (Dysphania ambrosioides)"
+                 data-preco="R$ 28,00"
+                 data-imagem="https://acdn-us.mitiendanube.com/stores/002/513/867/products/211-5b2b5a7c647e3c6e6b16866682749024-480-0.png"
+                 data-uso="Vermífugo e anti-inflamatório."
+                 data-parte="Folhas"
+                 data-forma="Macerado para uso tópico ou em chás."
+                 data-descricao="O Mastruz é amplamente utilizado na medicina popular como vermífugo e anti-inflamatório natural, podendo ser consumido em chás ou aplicado topicamente para aliviar inflamações.">Ver Produto</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Seção detalhe (agora ao lado do sidebar) -->
+    <section id="detalhe-produto" class="col-md-10 p-4 d-none">
+      <div class="card p-4 shadow" style="background-color: #a94442; color: white; border-radius: 15px;">
+        <div class="d-flex justify-content-between align-items-start mb-3">
+          <button id="btn-voltar" class="btn btn-warning">⬅ Voltar</button>
+          <span id="detalhe-preco" class="fw-bold" style="font-size:1.1rem;"></span>
+        </div>
+        <div class="d-flex flex-column flex-md-row align-items-start gap-4">
+          <img id="detalhe-img" class="rounded detalhe-img" src="" alt="imagem produto" style="width:280px; height:280px; object-fit:cover;">
+          <div class="flex-grow-1 text-white">
+            <h3 id="detalhe-titulo" class="mb-2" style="color:#ffd700;"></h3>
+            <p><strong>Uso:</strong> <span id="detalhe-uso"></span></p>
+            <p><strong>Parte utilizada:</strong> <span id="detalhe-parte"></span></p>
+            <p><strong>Forma de uso:</strong> <span id="detalhe-forma"></span></p>
+            <p><strong>Descrição:</strong> <span id="detalhe-descricao"></span></p>
+            <button class="btn btn-success mt-3">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- Rodapé -->
+<footer class="footer text-center footer_cor">
+  <a class="text-light" href="https://www.whatsapp.com/?lang=pt_BR"><i class="meu-icone bi bi-whatsapp"></i></a>
+  <a class="text-light" href="https://www.instagram.com/"><i class="meu-icone bi bi-instagram"></i></a>
+  <a class="text-light" href="https://www.facebook.com/?locale=pt_BR"><i class="meu-icone bi bi-facebook"></i></a>
+  <p class="text-light">&copy; 2025 - Raízes do Brasil. Todos os direitos reservados.</p>
+</footer>
+
+<!-- Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const sectionLista = document.getElementById('produtos-lista');
+  const sectionDetalhe = document.getElementById('detalhe-produto');
+
+  const img = document.getElementById('detalhe-img');
+  const titulo = document.getElementById('detalhe-titulo');
+  const uso = document.getElementById('detalhe-uso');
+  const parte = document.getElementById('detalhe-parte');
+  const forma = document.getElementById('detalhe-forma');
+  const preco = document.getElementById('detalhe-preco');
+  const descricao = document.getElementById('detalhe-descricao');
+  const btnVoltar = document.getElementById('btn-voltar');
+
+  sectionLista.addEventListener('click', function(e) {
+    if(e.target && e.target.classList.contains('ver-produto')) {
+      e.preventDefault();
+      const d = e.target.dataset;
+
+      img.src = d.imagem || '';
+      titulo.textContent = d.nome || '';
+      uso.textContent = d.uso || '';
+      parte.textContent = d.parte || '';
+      forma.textContent = d.forma || '';
+      preco.textContent = d.preco || '';
+      descricao.textContent = d.descricao || '';
+
+      sectionLista.classList.add('d-none');
+      sectionDetalhe.classList.remove('d-none');
+      sectionDetalhe.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+
+  btnVoltar.addEventListener('click', function() {
+    sectionDetalhe.classList.add('d-none');
+    sectionLista.classList.remove('d-none');
+  });
+});
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

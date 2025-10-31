@@ -1,10 +1,269 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Vídeos</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- CSS custom -->
+  <link rel="stylesheet" href="/static/blog.css">
 </head>
 <body>
-$END$
+
+<!-- ===== Navbar ===== -->
+<nav class="navegar navbar d-flex flex-row justify-content-between px-3">
+  <div class="d-flex flex-row align-items-center">
+      <i class="icon bi bi-list"></i> <!-- botão de três riscos correto -->
+      <ul class="navbar-nav d-flex flex-row">
+          <li class="nav-item m-2"><a class="nav-link titulo text-white" href="pagina_inicial.html">Página Inicial</a></li>
+          <li class="nav-item m-2"><a class="nav-link titulo text-white" href="login.html">Login</a></li>
+          <li class="nav-item m-2"><a class="nav-link titulo text-white" href="cadastros.html">Cadastros</a></li>
+          <li class="nav-item m-2"><a class="nav-link titulo text-white" href="loja.html">Loja</a></li>
+          <li class="nav-item m-2"><a class="nav-link titulo text-white" href="medicinais.html">Medicinais</a></li>
+          <li class="nav-item m-2"><a class="nav-link titulo text-white" href="blog.html">Blog</a></li>
+      </ul>
+  </div>
+  <div class="d-flex align-items-center">
+      <i class="icon bi bi-cart"></i>
+      <a class="navbar-brand ps-3"><img src="/imagem/logo.svg" width="70px" alt=""></a>
+  </div>
+</nav>
+
+
+ <!-- ===== Pesquisa ===== -->
+<section id="pesquisa-section" class="py-4 text-center">
+  <div class="container">
+    <div class="input-group w-100 mx-auto">
+      <div class="input-group w-75 mx-auto">
+        <span class="input-group-text bg-danger text-white"><i class="bi bi-search"></i></span>
+        <label>
+          <input type="text" class="form-control flex-grow-1" placeholder="Pesquisar Vídeo">
+        </label>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- ===== Cards de Vídeos ===== -->
+  <section class="container pb-5" id="videos-section">
+    <div class="row g-4">
+
+      <!-- Card 1 -->
+        <div class="col-md-4">
+          <div class="card">
+            <div class="ratio ratio-16x9">
+              <iframe src="https://www.youtube.com/embed/ah4G0gQiIu8"
+                title="YouTube video player"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">A vida nas últimas aldeias indígenas de São Paulo - 00:10:03</h6>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+              <label class="favorite">
+                  <input type="checkbox">
+                  <i class="bi bi-heart"></i>
+                  <i class="bi bi-heart-fill"></i>
+              </label>
+              <button class="btn btn-sm btn-outline-secondary btn-comentario"><i class="bi bi-chat"></i></button>
+            </div>
+          </div>
+        </div>
+
+      <!-- Card 2 -->
+        <div class="col-md-4">
+          <div class="card">
+            <div class="ratio ratio-16x9">
+              <iframe src="https://www.youtube.com/embed/HmQ1JAgwTmw"
+                title="YouTube video player" allowfullscreen></iframe>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">SOBREVIVI: 24 HORAS NA FLORESTA COM INDÍGENAS! - 00:12:59</h6>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+              <label class="favorite">
+                  <input type="checkbox">
+                  <i class="bi bi-heart"></i>
+                  <i class="bi bi-heart-fill"></i>
+              </label>
+              <button class="btn btn-sm btn-outline-secondary btn-comentario"><i class="bi bi-chat"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-4">
+          <div class="card">
+            <div class="ratio ratio-16x9">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/OMwkpxv3gJc?si=envAxr34sFWc4bia" title="YouTube video player" frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;
+                          picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"
+                          allowfullscreen>
+              </iframe>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">A vida na roça na aldeia/Um pouco sobre o nosso cotidiano - 00:22:15</h6>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+              <label class="favorite">
+                  <input type="checkbox">
+                  <i class="bi bi-heart"></i>
+                  <i class="bi bi-heart-fill"></i>
+              </label>
+              <button class="btn btn-sm btn-outline-secondary btn-comentario"><i class="bi bi-chat"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col-md-4">
+          <div class="card">
+            <div class="ratio ratio-16x9">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/31CS7C7VT70?si=3je-9A0o7RKqrio1" title="YouTube video player"
+                          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+                          gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"
+                          allowfullscreen>
+              </iframe>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">VISITANDO A MAIOR ALDEIA INDÍGENA DO BRASIL - 00:35:43</h6>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+              <label class="favorite">
+                  <input type="checkbox">
+                  <i class="bi bi-heart"></i>
+                  <i class="bi bi-heart-fill"></i>
+              </label>
+              <button class="btn btn-sm btn-outline-secondary btn-comentario"><i class="bi bi-chat"></i></button>
+            </div>
+          </div>
+        </div>
+
+         <!-- Card 5 -->
+        <div class="col-md-4">
+          <div class="card">
+            <div class="ratio ratio-16x9">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/Fxi0X6DPj30?si=uy9dpta3ylu67xle" title="YouTube video player"
+                          frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+                          encrypted-media; gyroscope; picture-in-picture; web-share"
+                          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+              </iframe>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">Aldeia indígena da Amazônia recebe turistas e mostra seus costumes - 00:07:50</h6>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+              <label class="favorite">
+                  <input type="checkbox">
+                  <i class="bi bi-heart"></i>
+                  <i class="bi bi-heart-fill"></i>
+              </label>
+              <button class="btn btn-sm btn-outline-secondary btn-comentario"><i class="bi bi-chat"></i></button>
+            </div>
+          </div>
+        </div>
+
+         <!-- Card 6 -->
+        <div class="col-md-4">
+          <div class="card">
+            <div class="ratio ratio-16x9">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/_r-HfrY89Tk?si=n1EUKBovXpor5mTl" title="YouTube video player"
+                          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+                           gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"
+                          allowfullscreen>
+              </iframe>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title">Prepare comigo, comida indígena na panela de barro - 00:06:42</h6>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+              <label class="favorite">
+                  <input type="checkbox">
+                  <i class="bi bi-heart"></i>
+                  <i class="bi bi-heart-fill"></i>
+              </label>
+              <button class="btn btn-sm btn-outline-secondary btn-comentario"><i class="bi bi-chat"></i></button>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </section>
+
+<!-- ===== Tela de Comentários (escondida) ===== -->
+<section id="comentarios" class="d-none">
+  <div class="content-card">
+    <div class="video-wrapper">
+      <iframe class="video-player"
+        src=""
+        title="Comentário Vídeo"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="comment-wrapper">
+      <h2>Deixe seu comentário</h2>
+      <form>
+          <label>
+              <input type="text" placeholder="Seu nome">
+          </label>
+          <label>
+              <textarea placeholder="Escreva seu comentário..."></textarea>
+          </label>
+          <button type="submit">Enviar</button>
+      </form>
+      <button class="btn-voltar">⬅ Voltar</button>
+    </div>
+  </div>
+</section>
+
+  <!-- ===== Rodapé ===== -->
+  <footer class="footer text-center footer_cor">
+      <a class="text-light" href="https://www.whatsapp.com/?lang=pt_BR"><i class="meu-icone bi bi-whatsapp"></i></a>
+      <a class="text-light" href="https://www.instagram.com/"><i class="meu-icone bi bi-instagram"></i></a>
+      <a class="text-light" href="https://www.facebook.com/?locale=pt_BR"><i class="meu-icone bi bi-facebook"></i></a>
+      <p class="text-light">&copy; 2025 - Raízes do Brasil. Todos os direitos reservados.</p>
+  </footer>
+
+<script>
+  const botoesComentarios = document.querySelectorAll('.btn-comentario');
+  const sectionVideos = document.getElementById('videos-section');
+  const sectionComentarios = document.getElementById('comentarios');
+  const comentariosIframe = sectionComentarios.querySelector('.video-player');
+  const btnVoltar = sectionComentarios.querySelector('.btn-voltar');
+  const sectionPesquisa = document.getElementById('pesquisa-section'); // <<< pesquisa
+
+  botoesComentarios.forEach(botao => {
+    botao.addEventListener('click', () => {
+      const iframeCard = botao.closest('.card').querySelector('iframe');
+      const videoSrc = iframeCard.getAttribute('src');
+
+      comentariosIframe.setAttribute('src', videoSrc);
+
+      // esconde cards e pesquisa
+      sectionVideos.classList.add('d-none');
+      sectionPesquisa.classList.add('d-none');
+
+      // mostra comentários
+      sectionComentarios.classList.remove('d-none');
+    });
+  });
+
+  btnVoltar.addEventListener('click', () => {
+    comentariosIframe.setAttribute('src', ""); // limpa vídeo
+
+    // volta cards e pesquisa
+    sectionComentarios.classList.add('d-none');
+    sectionVideos.classList.remove('d-none');
+    sectionPesquisa.classList.remove('d-none');
+  });
+</script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

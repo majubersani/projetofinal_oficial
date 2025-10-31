@@ -1,0 +1,107 @@
+/* ===================== */
+/* LOGIN PAGE AJUSTES */
+/* ===================== */
+body {
+  background-color: #FFF8DC; /* mantém o fundo original */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ======== NAVBAR ======== */
+.navegar {
+  background-color: #F2B544;
+}
+
+.icon {
+  font-size: 26px;
+  color: white;
+  margin: 0 8px;
+}
+
+.nav-link {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: white !important;
+  transition: 0.2s;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
+}
+
+
+/* container principal */
+.login-container {
+  flex: 1;
+  gap: 3rem;
+  padding: 2rem;
+  background-color: #FFF8DC;
+}
+
+/* Card de login */
+.login-card {
+  background-color: #9AA97F;
+  width: 100%;
+  max-width: 380px;
+}
+
+.titulo-login {
+  color: #8B1E1E;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Botão */
+.btn-login {
+  background-color: #a94442;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.btn-login:hover {
+  background-color: #8b1e1e;
+}
+
+/* Imagem */
+.imagem-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagem-login img.imagem-ajustada {
+  max-width: 250px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ======== RODAPÉ ======== */
+.footer_cor {
+  background-color: #9AA97F;
+  color: white;
+  padding: 15px;
+}
+
+.meu-icone {
+  font-size: 26px;
+  margin: 0 8px;
+  transition: 0.2s;
+}
+
+.meu-icone:hover {
+  opacity: 0.8;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .imagem-login img.imagem-ajustada {
+    max-width: 200px;
+  }
+}

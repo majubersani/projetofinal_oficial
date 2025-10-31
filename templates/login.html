@@ -1,10 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Raízes do Brasil</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/login.css">
 </head>
+
 <body>
-$END$
+
+<!-- Navbar -->
+<nav class="navegar navbar d-flex flex-row justify-content-between px-3">
+  <div class="d-flex flex-row align-items-center">
+    <i class="icon bi bi-list"></i>
+    <ul class="navbar-nav d-flex flex-row">
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="pagina_inicial.html">Página Inicial</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="login.html">Login</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="cadastros.html">Cadastros</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="loja.html">Loja</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="medicinais.html">Medicinais</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="blog.html">Blog</a></li>
+    </ul>
+  </div>
+  <div class="d-flex align-items-center">
+    <i class="icon bi bi-cart"></i>
+    <a class="navbar-brand ps-3"><img src="/imagem/logo.svg" width="70px" alt="Logo"></a>
+  </div>
+</nav>
+
+<!-- Conteúdo principal -->
+<main class="login-container d-flex flex-column flex-md-row align-items-center justify-content-center py-5">
+  <div class="imagem-login text-center mb-4 mb-md-0 me-md-5">
+    <img src="/imagem/imgpaglogin.svg" alt="Imagem ilustrativa de login" class="img-fluid imagem-ajustada">
+  </div>
+
+  <div class="login-card shadow-lg p-4 rounded-4 text-center">
+    <h2 class="titulo-login mb-4">Bem-vindo(a) 🌿</h2>
+    <form>
+      <div class="mb-3 text-start">
+        <label for="nome" class="form-label fw-semibold">Nome</label>
+        <input id="nome" type="text" class="form-control" placeholder="Digite seu nome" required>
+      </div>
+
+      <div class="mb-3 text-start">
+        <label for="cpf" class="form-label fw-semibold">CPF</label>
+        <input id="cpf" type="text" class="form-control" placeholder="Digite seu CPF" required>
+      </div>
+
+      <div class="mb-3 text-start">
+        <label for="senha" class="form-label fw-semibold">Senha</label>
+        <input id="senha" type="password" class="form-control" placeholder="Digite sua senha" required>
+      </div>
+
+      <div class="form-check text-start mb-3">
+        <input class="form-check-input" type="checkbox" id="termos" required>
+        <label class="form-check-label" for="termos">Concordo com os termos e condições</label>
+      </div>
+
+      <button class="btn-login w-100 py-2 fw-semibold" type="submit">Entrar</button>
+    </form>
+  </div>
+</main>
+
+<!-- Rodapé -->
+<footer class="footer text-center footer_cor p-3">
+  <a class="text-light mx-2" href="https://www.whatsapp.com/?lang=pt_BR"><i class="meu-icone bi bi-whatsapp"></i></a>
+  <a class="text-light mx-2" href="https://www.instagram.com/"><i class="meu-icone bi bi-instagram"></i></a>
+  <a class="text-light mx-2" href="https://www.facebook.com/?locale=pt_BR"><i class="meu-icone bi bi-facebook"></i></a>
+  <p class="text-light mt-2 mb-0">&copy; 2025 - Raízes do Brasil. Todos os direitos reservados.</p>
+</footer>
 </body>
 </html>

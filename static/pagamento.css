@@ -1,0 +1,18 @@
+.card_cadastro {
+    background-color: #9AA97F;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 20px;
+    height: 60vh;
+    width: 5%;
+}
+
+.lado-formulario {
+    margin: 20px;
+}
+
+.imagem-pagamento img {
+    width: 70%;
+    max-height: 100%;
+    object-fit: cover;
+}

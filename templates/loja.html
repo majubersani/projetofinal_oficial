@@ -1,10 +1,213 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- CSS customizado -->
+  <link rel="stylesheet" href="/static/loja.css">
 </head>
 <body>
+  <!-- Navbar -->
+  <nav class="navegar navbar d-flex flex-row justify-content-between px-3">
+    <div class="d-flex flex-row align-items-center">
+      <i class="icon bi bi-list"></i>
+      <ul class="navbar-nav d-flex flex-row">
+        <li class="nav-item m-2"><a class="nav-link titulo text-white" href="pagina_inicial.html">Página Inicial</a></li>
+        <li class="nav-item m-2"><a class="nav-link titulo text-white" href="login.html">Login</a></li>
+        <li class="nav-item m-2"><a class="nav-link titulo text-white" href="cadastros.html">Cadastros</a></li>
+        <li class="nav-item m-2"><a class="nav-link titulo text-white" href="loja.html">Loja</a></li>
+        <li class="nav-item m-2"><a class="nav-link titulo text-white" href="medicinais.html">Medicinais</a></li>
+        <li class="nav-item m-2"><a class="nav-link titulo text-white" href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+    <div class="d-flex align-items-center">
+      <i class="icon bi bi-cart"></i>
+      <a class="navbar-brand ps-3"><img src="/imagem/logo.svg" width="70px" alt="Logo"></a>
+    </div>
+  </nav>
 
+  <!-- CONTEÚDO PRINCIPAL -->
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <aside class="col-md-2 aside-tribal p-3">
+        <h5 class="fw-bold text-primary">Categorias</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link text-white" href="filtrar_loja_cocares.html">Cocares</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="filtrar_loja_instrumentos.html">Instrumentos</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="filtrar_loja_potes.html">Potes</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="filtrar_loja_bonecos.html">Bonecos</a></li>
+        </ul>
+      </aside>
+
+      <!-- Produtos -->
+      <main class="col-md-10 p-4">
+        <div class="row g-3">
+
+          <!-- Produto 1 -->
+          <div class="col-md-3">
+            <div class="card text-center shadow-sm">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Gilcrease_-_Federkopfschmuck.jpg" class="card-img-top" alt="Cocar Arco">
+              <div class="card-body">
+                <h6 class="card-title">Cocar Arco</h6>
+                <p class="card-text">R$ 165,00</p>
+                <a href="#" class="btn btn-success btn-sm"
+                   onclick="verProduto('Cocar Arco','R$ 165,00','https://upload.wikimedia.org/wikipedia/commons/4/4c/Gilcrease_-_Federkopfschmuck.jpg','Este cocar arco é uma peça artesanal única, feita à mão com penas selecionadas e materiais tradicionais. Representa a cultura indígena e pode ser usado em decorações ou cerimônias culturais. Cada detalhe reflete a autenticidade e riqueza das tradições indígenas.')"
+                   data-bs-toggle="modal" data-bs-target="#produtoModal">Ver Produto</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 2 -->
+          <div class="col-md-3">
+            <div class="card text-center shadow-sm">
+              <img src="https://http2.mlstatic.com/D_NQ_NP_844191-MLB84128867023_042025-O.webp" class="card-img-top" alt="Arma Afiada">
+              <div class="card-body">
+                <h6 class="card-title">Arma Afiada</h6>
+                <p class="card-text">R$ 85,00</p>
+                <a href="#" class="btn btn-success btn-sm"
+                   onclick="verProduto('Arma Afiada','R$ 85,00','https://http2.mlstatic.com/D_NQ_NP_844191-MLB84128867023_042025-O.webp','Uma réplica artesanal de arma tradicional indígena, cuidadosamente trabalhada com madeira e acabamento seguro para fins decorativos. Ideal para colecionadores e amantes de culturas nativas. Seu design detalhado evidencia técnicas artesanais milenares.')"
+                   data-bs-toggle="modal" data-bs-target="#produtoModal">Ver Produto</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 3 -->
+          <div class="col-md-3">
+            <div class="card text-center shadow-sm">
+              <img src="https://mteresarte.wordpress.com/wp-content/uploads/2013/02/pote-tucano.jpg" class="card-img-top" alt="Pote Sol">
+              <div class="card-body">
+                <h6 class="card-title">Pote Sol</h6>
+                <p class="card-text">R$ 49,20</p>
+                <a href="#" class="btn btn-success btn-sm"
+                   onclick="verProduto('Pote Sol','R$ 49,20','https://mteresarte.wordpress.com/wp-content/uploads/2013/02/pote-tucano.jpg','Pote de cerâmica feito à mão com pintura detalhada inspirada na natureza. Perfeito para armazenamento de pequenos objetos ou como peça decorativa. Cada pote é único, refletindo o cuidado e a criatividade do artesão.')"
+                   data-bs-toggle="modal" data-bs-target="#produtoModal">Ver Produto</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 4 -->
+          <div class="col-md-3">
+            <div class="card text-center shadow-sm">
+              <img src="https://http2.mlstatic.com/D_NQ_NP_662821-MLB82562014357_022025-O.webp" class="card-img-top" alt="Cocar meia Lua">
+              <div class="card-body">
+                <h6 class="card-title">Cocar meia Lua</h6>
+                <p class="card-text">R$ 154,90</p>
+                <a href="#" class="btn btn-success btn-sm"
+                   onclick="verProduto('Cocar meia Lua','R$ 154,90','https://http2.mlstatic.com/D_NQ_NP_662821-MLB82562014357_022025-O.webp','Cocar tradicional em formato de meia lua, feito com penas naturais e estrutura leve. Ideal para decoração ou uso simbólico em apresentações culturais. Representa a beleza e a tradição indígena de forma elegante e autêntica.')"
+                   data-bs-toggle="modal" data-bs-target="#produtoModal">Ver Produto</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 5 -->
+          <div class="col-md-3">
+            <div class="card text-center shadow-sm">
+              <img src="https://cdn.shopify.com/s/files/1/0356/0233/3836/files/escultura-etnica-arte-indigena-mascara-ticuna-decoracao-rustica-artesanato-brasileiro-artesintonia.jpg-e1568650207633_grande.jpg?v=1595349725" class="card-img-top" alt="Boneco Ritual">
+              <div class="card-body">
+                <h6 class="card-title">Boneco Ritual</h6>
+                <p class="card-text">R$ 75,00</p>
+                <a href="#" class="btn btn-success btn-sm"
+                   onclick="verProduto('Boneco Ritual','R$ 75,00','https://cdn.shopify.com/s/files/1/0356/0233/3836/files/escultura-etnica-arte-indigena-mascara-ticuna-decoracao-rustica-artesanato-brasileiro-artesintonia.jpg-e1568650207633_grande.jpg?v=1595349725','Boneco artesanal representando tradições rituais indígenas. Feito com madeira, fibras naturais e pintura manual, é perfeito para colecionadores ou como peça de decoração temática. Cada boneco carrega história e significado cultural.')"
+                   data-bs-toggle="modal" data-bs-target="#produtoModal">Ver Produto</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 6 -->
+          <div class="col-md-3">
+            <div class="card text-center shadow-sm">
+              <img src="https://cdn.leroymerlin.com.br/products/banco_indigena_grande_macaco_etnia_mehinako_mod__1_1570850317_95d5_300x300.png" class="card-img-top" alt="Banco de Gato">
+              <div class="card-body">
+                <h6 class="card-title">Banco de Gato</h6>
+                <p class="card-text">R$ 334,65</p>
+                <a href="#" class="btn btn-success btn-sm"
+                   onclick="verProduto('Banco de Gato','R$ 334,65','https://cdn.leroymerlin.com.br/products/banco_indigena_grande_macaco_etnia_mehinako_mod__1_1570850317_95d5_300x300.png','Banco esculpido em madeira maciça, inspirado em formas de animais da fauna indígena. Resistente e único, serve tanto para uso funcional quanto decorativo, valorizando a estética artesanal.')"
+                   data-bs-toggle="modal" data-bs-target="#produtoModal">Ver Produto</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 7 -->
+          <div class="col-md-3">
+            <div class="card text-center shadow-sm">
+              <img src="https://acdn-us.mitiendanube.com/stores/002/373/139/products/1-8-11-3cc9420c4152b085d516703395604787-480-0.jpg" class="card-img-top" alt="Banco de Aranha">
+              <div class="card-body">
+                <h6 class="card-title">Banco de Aranha</h6>
+                <p class="card-text">R$ 334,65</p>
+                <a href="#" class="btn btn-success btn-sm"
+                   onclick="verProduto('Banco de Aranha','R$ 334,65','https://acdn-us.mitiendanube.com/stores/002/373/139/products/1-8-11-3cc9420c4152b085d516703395604787-480-0.jpg','Banco artístico inspirado no formato da aranha, esculpido manualmente. Peça exclusiva que combina utilidade e arte, perfeita para quem busca móveis artesanais com identidade cultural.')"
+                   data-bs-toggle="modal" data-bs-target="#produtoModal">Ver Produto</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produto 8 -->
+          <div class="col-md-3">
+            <div class="card text-center shadow-sm">
+              <img src="https://institutoiepe.org.br/wp-content/uploads/2020/12/DSC01928-artes-pesca-museu-kuahi-1024x836.jpg" class="card-img-top" alt="Peças Pescaria">
+              <div class="card-body">
+                <h6 class="card-title">Peças Pescaria</h6>
+                <p class="card-text">R$ 250,00</p>
+                <a href="#" class="btn btn-success btn-sm"
+                   onclick="verProduto('Peças Pescaria','R$ 250,00','https://institutoiepe.org.br/wp-content/uploads/2020/12/DSC01928-artes-pesca-museu-kuahi-1024x836.jpg','Conjunto de miniaturas representando cenas de pesca indígena, feitas à mão em madeira e fibra natural. Ideal para colecionadores, escolas ou como lembrança cultural, mostrando técnicas tradicionais e respeito à natureza.')"
+                   data-bs-toggle="modal" data-bs-target="#produtoModal">Ver Produto</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="footer text-center footer_cor">
+    <a class="text-light" href="https://www.whatsapp.com/?lang=pt_BR"><i class="meu-icone bi bi-whatsapp"></i></a>
+    <a class="text-light" href="https://www.instagram.com/"><i class="meu-icone bi bi-instagram"></i></a>
+    <a class="text-light" href="https://www.facebook.com/?locale=pt_BR"><i class="meu-icone bi bi-facebook"></i></a>
+    <p class="text-light">&copy; 2025 - Raízes do Brasil. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Modal Produto -->
+  <div class="modal fade" id="produtoModal" tabindex="-1" aria-labelledby="produtoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="produtoModalLabel">Produto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <img id="produtoImagem" src="" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+              <h5 id="produtoNome"></h5>
+              <p id="produtoPreco"></p>
+              <p id="produtoDescricao"></p>
+              <button class="btn btn-primary">Adicionar ao Carrinho</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function verProduto(nome, preco, imagem, descricao) {
+      document.getElementById('produtoNome').innerText = nome;
+      document.getElementById('produtoPreco').innerText = preco;
+      document.getElementById('produtoImagem').src = imagem;
+      document.getElementById('produtoDescricao').innerText = descricao;
+    }
+  </script>
 </body>
 </html>

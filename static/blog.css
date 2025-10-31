@@ -1,0 +1,204 @@
+/* ESTILO GERAL */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #2b2b2b;
+  background-color: #fff8d6; /* fundo amarelo claro */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* NAVBAR */
+.navegar {
+  background-color: #F2B544;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.icon {
+  font-size: 26px;
+  color: white;
+  margin: 0 8px;
+  cursor: pointer;
+}
+
+/* Links do navbar */
+.nav-link {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: white !important;
+  transition: 0.2s;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
+}
+
+/* Remove negrito do link ativo Blog */
+.nav-link.fw-bold {
+  font-weight: 500 !important;
+}
+
+/* PESQUISA E CONTEÚDO PRINCIPAL */
+#pesquisa-section {
+  padding: 20px 0;
+}
+
+#videos-section {
+  padding: 20px 10px;
+  flex: 1;
+}
+
+/* CARDS DE VÍDEOS */
+.card {
+  border-radius: 10px;
+  background-color: #9eb3943d; /* verde claro transparente */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+  margin-bottom: 20px;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.card-body h6 {
+  font-size: 14px;
+}
+
+/* Favoritos (coração) */
+.favorite {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.favorite input {
+  display: none;
+}
+
+.favorite .bi-heart-fill {
+  display: none;
+  color: red;
+}
+
+.favorite input:checked ~ .bi-heart {
+  display: none;
+}
+
+.favorite input:checked ~ .bi-heart-fill {
+  display: inline;
+}
+
+/* COMENTÁRIOS */
+.d-none {
+  display: none !important;
+}
+
+/* Container flexível para vídeo + comentário */
+.content-card {
+  display: flex;
+  flex-wrap: wrap; /* permite quebrar em telas pequenas */
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #9AA97F; /* verde */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Vídeo ocupa metade em telas grandes, 100% em pequenas */
+.video-wrapper {
+  flex: 1 1 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 300px;
+}
+
+.video-player {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  border: none;
+}
+
+/* Formulário proporcional */
+.comment-wrapper {
+  flex: 1 1 400px;
+  min-width: 300px;
+  max-width: 450px;
+  background-color: #a7b88c;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.comment-wrapper h2 {
+  color: #8b1e1e;
+  font-size: 24px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.comment-wrapper form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.comment-wrapper form input,
+.comment-wrapper form textarea {
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: none;
+  width: 100%;
+}
+
+.comment-wrapper form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.comment-wrapper form button:hover {
+  background-color: #333;
+}
+
+/* Botão voltar */
+.btn-voltar {
+  margin-top: 10px;
+  background: #F2B544;
+  color: #000;
+}
+
+/* RODAPÉ */
+footer.footer_cor {
+  background-color: #9AA97F;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: auto; /* garante que o footer fique no fim da tela */
+}
+
+.meu-icone {
+  font-size: 1.5rem;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+
+.meu-icone:hover {
+  color: #ffc107;
+}

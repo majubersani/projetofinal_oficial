@@ -1,0 +1,116 @@
+/* Sidebar */
+aside {
+  min-height: 100vh; /* ocupa toda a altura */
+}
+aside h5 {
+  margin-bottom: 20px;
+}
+aside .nav-link {
+  padding: 8px 0;
+  font-weight: 500;
+}
+aside .nav-link:hover {
+  color: #ffc107; /
+}
+.aside-tribal {
+  background-color: #a94442;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* Ajuste para imagens dos cards ficarem do mesmo tamanho */
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* NAVBAR */
+.navegar {
+  background-color: #F2B544;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+.icon {
+  font-size: 26px;
+  color: white;
+  margin: 0 8px;
+  cursor: pointer;
+}
+
+/* Cards */
+.card {
+  border-radius: 10px;
+  background-color: #9eb3943d;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Botão comprar */
+.btn-success {
+  background-color: #3c763d;
+  border: none;
+}
+.btn-success:hover {
+  background-color: #2d572e;
+}
+
+/* Rodapé */
+.footer_cor {
+  background-color: #9AA97F;
+  padding: 20px 0;
+}
+.meu-icone {
+  font-size: 1.5rem;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+.meu-icone:hover {
+  color: #ffc107;
+}
+
+/* BODY / FUNDO */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #FFF8DC; /* amarelo claro suave */
+}
+
+/* botão padrão (verde) */
+.btn-success {
+  background-color: #28a745;
+  border: none;
+}
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+/* Links padrão da sidebar */
+aside .nav-link {
+  padding: 8px 0;
+  font-weight: 500;
+  color: #a94442;
+}
+
+/* Categoria ativa (quando está na página dela) */
+aside .nav-link.active {
+  color: #0d6efd !important; /* azul */
+  font-weight: bold;
+}
+
+/* Fundo do modal de produto */
+.modal-content {
+  background-color: #a94442; /* aqui você coloca a cor que quiser */
+  border-radius: 15px;        /* opcional: deixa os cantos arredondados */
+}

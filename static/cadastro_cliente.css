@@ -1,0 +1,11 @@
+.card_cadastro {
+    background-color: #9AA97F;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 20px;
+    height: 75vh;
+}
+
+.lado-formulario {
+    margin: 20px;
+}

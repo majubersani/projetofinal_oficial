@@ -1,0 +1,103 @@
+/* ======== GERAL ======== */
+body {
+  background-color: #FFF8DC;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ======== NAVBAR ======== */
+.navegar {
+  background-color: #F2B544;
+}
+
+.icon {
+  font-size: 26px;
+  color: white;
+  margin: 0 8px;
+}
+
+.nav-link {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: white !important;
+  transition: 0.2s;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
+}
+
+/* ======== CONTEÚDO PRINCIPAL ======== */
+.conteudo-inicial {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.card-inicial {
+  background-color: #9AA97F;
+  border-radius: 14px;
+  padding: 2rem;
+  max-width: 900px;
+  min-height: 400px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titulo2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 42px;
+  color: #8B1E1E;
+}
+
+.texto {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #fff;
+}
+
+/* ======== IMAGEM ======== */
+.imagem-ajustada {
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* ======== RESPONSIVO ======== */
+@media (max-width: 768px) {
+  .card-inicial {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .imagem-ajustada {
+    margin-top: 1rem;
+    max-width: 200px;
+  }
+}
+
+/* ======== RODAPÉ ======== */
+.footer_cor {
+  background-color: #9AA97F;
+  color: white;
+  padding: 15px;
+}
+
+.meu-icone {
+  font-size: 26px;
+  margin: 0 8px;
+  transition: 0.2s;
+}
+
+.meu-icone:hover {
+  opacity: 0.8;
+}
