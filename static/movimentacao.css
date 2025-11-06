@@ -38,8 +38,26 @@ aside .nav-link:hover {
   border-top-right-radius: 10px;
 }
 
+/* ======== NAVBAR ======== */
 .navegar {
-    background-color: #F2B544;
+  background-color: #F2B544;
+}
+
+.icon {
+  font-size: 26px;
+  color: white;
+  margin: 0 8px;
+}
+
+.nav-link {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: white !important;
+  transition: 0.2s;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
 }
 
 /* Cards */
