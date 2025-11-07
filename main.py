@@ -22,7 +22,7 @@ app.config['SECRET_KEY'] = 'secret!'
 
 @app.route('/')
 def index():
-    return redirect(url_for('login'))
+    return render_template("pagina_inicial.html")
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -260,7 +260,64 @@ def post_cadastrar_usuario():
                     flash(response["msg"])
                 return redirect(url_for("pagina_inicial"))
 
-    return render_template("cadastro_usuario.html")
+    return render_template("cadastro_cliente.html")
+
+@app.route("/cadastro/cartao", methods=["GET", "POST"])
+def post_cadastro_cartao():
+    if not token:
+        return redirect(url_for("pagina_inicial"))
+    if request.method == "POST":
+        nome_titular = request.form.get("nome_titular")
+        numero_cartao = request.form.get("numero_cartao")
+        data_validade = request.form.get("data_validade")
+        CVV = request.form.get("CVV")
+
+        if nome_titular and numero_cartao and data_validade and CVV:
+
+            response = post_cadastro_cartao(nome_titular, numero_cartao, data_validade, CVV, token)
+
+            if response:
+                flash(" dados de envio cadastrado com sucesso!")
+                return redirect(url_for(""))
+
+            else:
+                if "erro" in response:
+                    flash(response["erro"])
+                else:
+                    flash(response["msg"])
+                return redirect(url_for("pagina_inicial"))
+
+    return render_template("cadastro_cliente.html")
+
+@app.route("/cadastro/envio", methods=["GET", "POST"])
+def post_cadastro_envio():
+        if not token:
+            return redirect(url_for("pagina_inicial"))
+        if request.method == "POST":
+            nome_destinatario = request.form.get("nome_destinatario")
+            endereco = request.form.get("endereco")
+            cidade = request.form.get("cidade")
+            estado = request.form.get("estado")
+            CEP = request.form.get("CEP")
+            telefone = request.form.get("telefone")
+            email = request.form.get("email")
+
+            if nome_destinatario and endereco and cidade and estado and CEP and telefone and email:
+
+                response = post_cadastro_envio(nome_destinatario, endereco, cidade, estado, CEP, telefone, email, token)
+
+                if response:
+                    flash(" dados de envio cadastrado com sucesso!")
+                    return redirect(url_for("get_lista_envio"))
+
+                else:
+                    if "erro" in response:
+                        flash(response["erro"])
+                    else:
+                        flash(response["msg"])
+                    return redirect(url_for("pagina_inicial"))
+
+        return render_template("cadastro_cliente.html")
 
 @app.route("/cadastro/medicamento", methods=["GET", "POST"])
 def post_cadastro_medicamento():
@@ -296,7 +353,7 @@ def post_cadastro_medicamento():
                     flash(response["msg"])
                 return redirect(url_for("pagina_inicial"))
 
-    return render_template("loja.html")
+    return render_template("cadastro_medicinais.html")
 
 
 @app.route("/cadastro/produto", methods=["GET", "POST"])
@@ -327,7 +384,7 @@ def post_cadastro_produto():
                     flash(response["msg"])
                 return redirect(url_for("pagina_inicial"))
 
-    return render_template("cadastro_produto.html")
+    return render_template("cadastro_produtos.html")
 
 @app.route("/cadastro/blog", methods=["GET", "POST"])
 def post_cadastro_blog():
@@ -382,37 +439,37 @@ def post_cadastro_movimentacao():
                     flash(response["msg"])
                 return redirect(url_for("pagina_inicial"))
 
-    return render_template("cadastro_movimentacao.html")
+    return render_template("movimentacao.html")
 
 
-@app.route("/cadastro/pedido", methods=["GET", "POST"])
-def post_cadastro_pedido():
-    if not token:
-        return redirect(url_for("pagina_inicial"))
-    if request.method == "POST":
-        produto_id = request.form.get("produto_id")
-        vendedor_id = request.form.get("vendedor_id")
-        quantidade = request.form.get("quantidade")
-        valor_total = request.form.get("valor_total")
-        endereco = request.form.get("endereco")
-        usuario_id = request.form.get("usuario_id")
-
-        if produto_id and vendedor_id and quantidade and valor_total and endereco and usuario_id:
-
-            response = post_cadastro_pedido( produto_id, vendedor_id, quantidade, valor_total, endereco, usuario_id, token)
-
-            if response:
-                flash("movimentacao cadastrado com sucesso!")
-                return redirect(url_for("get_lista_movimentacao"))
-
-            else:
-                if "erro" in response:
-                    flash(response["erro"])
-                else:
-                    flash(response["msg"])
-                return redirect(url_for("pagina_inicial"))
-
-    return render_template("cadastro_movimentacao.html")
+# @app.route("/cadastro/pedido", methods=["GET", "POST"])
+# def post_cadastro_pedido():
+#     if not token:
+#         return redirect(url_for("pagina_inicial"))
+#     if request.method == "POST":
+#         produto_id = request.form.get("produto_id")
+#         vendedor_id = request.form.get("vendedor_id")
+#         quantidade = request.form.get("quantidade")
+#         valor_total = request.form.get("valor_total")
+#         endereco = request.form.get("endereco")
+#         usuario_id = request.form.get("usuario_id")
+#
+#         if produto_id and vendedor_id and quantidade and valor_total and endereco and usuario_id:
+#
+#             response = post_cadastro_pedido( produto_id, vendedor_id, quantidade, valor_total, endereco, usuario_id, token)
+#
+#             if response:
+#                 flash("movimentacao cadastrado com sucesso!")
+#                 return redirect(url_for("get_lista_movimentacao"))
+#
+#             else:
+#                 if "erro" in response:
+#                     flash(response["erro"])
+#                 else:
+#                     flash(response["msg"])
+#                 return redirect(url_for("pagina_inicial"))
+#
+#     return render_template("movimentacao.html")
 
 @app.route("/consulta/usuario/<int:id>")
 def get_consulta_usuario(id):
@@ -444,7 +501,7 @@ def get_consulta_produto(id):
             flash("Não foi possível encontrar o produto.")
         return redirect(url_for("home"))
 
-    return render_template("consulta_produto.html", produto=produto)
+    return render_template("detalhes_produtos.html", produto=produto)
 
 @app.route("/consulta/blog/<int:id>")
 def get_consulta_blog(id):
@@ -508,7 +565,7 @@ def get_lista_usuario():
             flash("Não foi possível listar os usuários.")
         return redirect(url_for("home"))
 
-    return render_template("lista_usuario.html", usuarios=usuarios)
+    return render_template("lista_clientes.html", usuarios=usuarios)
 
 @app.route("/lista/produto")
 def get_lista_produto():
@@ -524,7 +581,7 @@ def get_lista_produto():
             flash("Não foi possível listar os produtos.")
         return redirect(url_for("home"))
 
-    return render_template("lista_produto.html", produtos=produtos)
+    return render_template("lista_produtos.html", produtos=produtos)
 
 @app.route("/lista/blog")
 def get_lista_blog():

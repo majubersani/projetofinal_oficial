@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+  <div class="container">
+    <div class="row justify-content-center align-items-start g-4">
+
+      <!-- Espaço reservado para o vídeo -->
+      <div class="col-md-6 video-area text-center">
+        <div class="video-placeholder">
+          <p>🎬 O vídeo aparecerá aqui</p>
+        </div>
+      </div>
+
+      <!-- Card de comentários -->
+      <div class="col-md-5">
+        <div class="card">
+          <div class="card-header">
+            Comentar Vídeo
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="mb-3">
+                <label for="nome" class="form-label">Seu Nome</label>
+                <input type="text" class="form-control" id="nome" placeholder="Digite seu nome">
+              </div>
+
+              <div class="mb-3">
+                <label for="comentario" class="form-label">Comentário</label>
+                <textarea class="form-control" id="comentario" rows="3" placeholder="Escreva seu comentário..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-success w-100">Enviar Comentário</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock conteudo %}

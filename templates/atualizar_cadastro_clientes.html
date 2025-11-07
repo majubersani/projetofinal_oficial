@@ -8,29 +8,29 @@
             <form class="form">
                 <div class="form-row">
                     <div class="mb-3 m-3 fonte">
-                        <label for="nome">Nome</label>
-                        <input id="nome" type="text" class="form-control is-invalid" placeholder="Nome" value=""
+                        <label for="nome">Novo nome</label>
+                        <input id="nome" type="text" class="form-control is-invalid" placeholder="Novo nome" value=""
                                required>
                     </div>
                     <div class="mb-3 m-3 fonte">
-                        <label for="email">Email</label>
+                        <label for="email">Novo email</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroupPrepend3">@</span>
                             </div>
-                            <input id="email" type="text" class="form-control is-invalid" placeholder="Email"
+                            <input id="email" type="text" class="form-control is-invalid" placeholder="Novo email"
                                    aria-describedby="inputGroupPrepend3" required>
                         </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="mb-3 m-3 fonte">
-                        <label for="cpf">CPF</label>
-                        <input id="cpf" type="text" class="form-control is-invalid" placeholder="CPF" required>
+                        <label for="cpf">Novo CPF</label>
+                        <input id="cpf" type="text" class="form-control is-invalid" placeholder="Novo CPF" required>
                     </div>
                     <div class="mb-3 m-3 fonte">
-                        <label for="senha">Senha</label>
-                        <input id="senha" type="text" class="form-control is-invalid" placeholder="Senha" required>
+                        <label for="senha">Nova senha</label>
+                        <input id="senha" type="text" class="form-control is-invalid" placeholder="Nova senha" required>
                     </div>
                     <div class="mb-3 m-3 fonte">
                         <label for="confirmar_senha">Confirmar senha</label>
@@ -46,15 +46,16 @@
                         </label>
                     </div>
                 </div>
-                <button class="btn btn-primary m-3 botao fonte" type="submit">Salvar</button>
-                <div class="btn btn-primary botao-contato text-light" onmousedown="limpaInput()">Limpar</div>
+                <button class="btn btn-dark m-3 botao fonte" type="submit">Salvar</button>
+                <div class="btn btn-dark botao-contato text-light" onmousedown="limpaInput()">Limpar</div>
             </form>
         </div>
     </div>
 
     <div class="w-100">
-        <img src="/imagem/img_cadastro_cliente.png" alt="">
+        <img src="static/img_cadastrocliente.svg">
     </div>
 </div>
+
 
 {% endblock conteudo %}

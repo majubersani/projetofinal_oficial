@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<!-- Área principal -->
+<div class="container-fluid main-section py-5">
+    <div class="container form-box p-4">
+        <div class="row align-items-center">
+            <!-- Formulário -->
+            <div class="col-md-8">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Novo nome</label>
+                        <input type="text" class="form-control" placeholder="Novo nome">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Novo preço</label>
+                        <input type="text" class="form-control" placeholder="Novo preço">
+                    </div>
+
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" checked>
+                        <label class="form-check-label">Nova categoria<br><small>Cocar</small></label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nova descrição</label>
+                        <input type="text" class="form-control" placeholder="Nova descrição">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Novo fabricante</label>
+                        <input type="text" class="form-control" placeholder="Novo fabricante">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nova dimensão</label>
+                        <input type="text" class="form-control" placeholder="Nova dimensão">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Novo peso</label>
+                        <input type="text" class="form-control" placeholder="Novo peso">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nova cor</label>
+                        <input type="text" class="form-control" placeholder="Nova cor">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Novo uso</label>
+                        <input type="text" class="form-control" placeholder="Novo uso">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nova parte utilizada</label>
+                        <input type="text" class="form-control" placeholder="Nova parte utilizada">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nova forma de uso</label>
+                        <input type="text" class="form-control" placeholder="Nova forma de uso">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nova imagem URL</label>
+                        <input type="text" class="form-control" placeholder="Nova imagem URL">
+                    </div>
+
+
+                    <button type="submit" class="btn btn-dark w-100">Cadastrar</button>
+                </form>
+            </div>
+
+            <!-- Imagem lateral -->
+            <div class="col-md-4 text-center">
+                <div class="img-box p-2">
+                    <img src="static/img_cadastro_medicinais.svg"
+                         class="img-fluid rounded" alt="Cocar indígena">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock conteudo %}
