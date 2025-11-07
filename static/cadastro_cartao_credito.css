@@ -1,0 +1,56 @@
+/* Barra superior */
+.menu-topo {
+  background-color: #f5af28;
+}
+
+.nav-link {
+  color: white !important;
+  margin: 0 8px;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Fundo geral */
+body {
+  background-color: #e6dfd4;
+}
+
+/* Título */
+.titulo {
+  color: #7b2c21;
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+/* Caixa do formulário */
+.form-box {
+  background-color: white;
+  border: 2px solid #a26ce6;
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+.form-label {
+  color: #333;
+  font-weight: 500;
+}
+
+.form-control {
+  border: 1px dashed #a26ce6;
+}
+
+.btn-dark {
+  background-color: black;
+  border: none;
+  font-weight: 600;
+}
+
+/* Imagem dos cartões */
+.cartoes {
+  width: 300px;
+  margin-top: 50px;
+}

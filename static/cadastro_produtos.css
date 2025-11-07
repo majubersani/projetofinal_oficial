@@ -1,0 +1,59 @@
+.navegar{
+  background-color: #F2B544;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Barra superior */
+.topbar {
+  background-color: #8e9f77;
+  padding: 10px 30px;
+}
+
+.topbar .nav-link {
+  color: white;
+  font-weight: 500;
+  margin-right: 20px;
+}
+
+.topbar .nav-link.active {
+  color: #004d66;
+  font-weight: 700;
+}
+
+/* Seção principal */
+.main-section {
+  background-color: #8e9f77;
+  border-radius: 10px;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.form-box {
+  background: white;
+  border-radius: 10px;
+  max-width: 900px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Botão */
+.btn-dark {
+  font-weight: bold;
+}
+
+/* Imagem lateral */
+.img-box {
+  background: #e8a533;
+  border-radius: 15px;
+}
+
+.img-box img {
+  border-radius: 10px;
+}
+
+.footer_cor {
+  background-color: #9AA97F;
+}
