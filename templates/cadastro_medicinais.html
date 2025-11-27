@@ -8,25 +8,21 @@
         <div class="row align-items-center">
             <!-- Formulário -->
             <div class="col-md-8">
-                <form>
+               <form action="{{ url_for('cadastro_medicamento') }}" method="post">
+
                     <div class="mb-3">
                         <label class="form-label">Nome</label>
-                        <input type="text" class="form-control" placeholder="Nome" name="nome">
+                        <input type="text" class="form-control" placeholder="Nome_produto" name="nome">
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Preço</label>
-                        <input type="text" class="form-control" placeholder="Preço" name="preco">
-                    </div>
-
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" checked name="categoria">
-                        <label class="form-check-label">Categoria<br><small>Cocar</small></label>
+                        <input type="text" class="form-control" placeholder="Preço_produto" name="preco">
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Descrição</label>
-                        <input type="text" class="form-control" placeholder="Descrição" name="descricao">
+                        <input type="text" class="form-control" placeholder="Descrição_produto" name="descricao">
                     </div>
 
                     <div class="mb-3">
@@ -35,18 +31,23 @@
                     </div>
 
                     <div class="mb-3">
+                        <label class="form-label">Categoria produto</label>
+                        <input type="text" class="form-control" placeholder="categoria_produto" name="categoria">
+                    </div>
+
+                    <div class="mb-3">
                         <label class="form-label">Dimensão</label>
-                        <input type="text" class="form-control" placeholder="Dimensão" name="dimensao">
+                        <input type="text" class="form-control" placeholder="dimensao_produto" name="dimensao">
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Peso</label>
-                        <input type="text" class="form-control" placeholder="Peso" name="peso">
+                        <input type="text" class="form-control" placeholder="peso_produto" name="peso">
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Cor</label>
-                        <input type="text" class="form-control" placeholder="Cor" name="cor">
+                        <input type="text" class="form-control" placeholder="cor_produto" name="cor">
                     </div>
 
                     <div class="mb-3">
@@ -61,7 +62,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Forma de uso</label>
-                        <input type="text" class="form-control" placeholder="Forma de uso" name="forma_de_uso">
+                        <input type="text" class="form-control" placeholder="Forma de uso" name="forma_uso">
                     </div>
 
                     <div class="mb-3">

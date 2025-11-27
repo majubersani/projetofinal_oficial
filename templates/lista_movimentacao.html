@@ -2,6 +2,7 @@
 
 {% block conteudo %}
 
+<h5>Movimentacoes</h5>
 <div class="cards row justify-content-around">
     {% for movimentacao in movimentacoes %}
 
@@ -11,7 +12,7 @@
         <h5 class="titulo">{{ movimentacao.produto_id }}</h5>
         <h5 class="titulo">{{ movimentacao.data }}</h5>
         <h5 class="titulo">{{ movimentacao.status }}</h5>
-        <button class="btn w-100 py-2 fw-semibold" type="submit">Editar</button>
+        <a href="{{ url_for('atualizar_movimentacao',id=movimentacao.ID_movimentacao)}}"> EDITAR</a>
     </div>
     {% endfor %}
 

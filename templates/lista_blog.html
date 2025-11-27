@@ -11,7 +11,7 @@
         <h5 class="titulo">{{ blog.titulo}}</h5>
         <h5 class="titulo">{{ blog.comentario}}</h5>
         <h5 class="titulo">{{ blog.data}}</h5>
-        <button class="btn w-100 py-2 fw-semibold" type="submit">Editar</button>
+        <a href="{{ url_for('atualizar_cadastro_blog',id=blog.id_blog)}}"> EDITAR</a>
     </div>
     {% endfor %}
 

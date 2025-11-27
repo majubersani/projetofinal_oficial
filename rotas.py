@@ -89,8 +89,9 @@ def get_consulta_movimentacao_id(id):
 #         return {'erro': response.json()}
 
 def get_lista_usuario():
-    url = f'{url_mestra}/lista/usuario/{id}'
+    url = f'{url_mestra}/lista/usuario'
     response = requests.get(url)
+    return response.json()
 
     print(f"Status da resposta: {response.status_code}")
     print(f"Conteúdo da resposta: {response.text}")
@@ -123,6 +124,16 @@ def get_lista_produto():
         print(f'erro:{response.status_code}')
         return {'erro': response.json()}
 
+def get_lista_envio():
+    url = f'{url_mestra}/lista/envio'
+    response = requests.get(url)
+    if response.status_code == 200:
+        dados = response.json()
+        print(dados)
+        return dados
+    else:
+        print(f'erro:{response.status_code}')
+        return {'erro': response.json()}
 
 def get_lista_blog():
     url = f'{url_mestra}/lista/blog'
@@ -178,10 +189,10 @@ def put_atualizar_usuario(nome, CPF, email, papel):
         return {'erro': response.json()}
 
 
-def put_atualizar_produto(nome_produto, dimensao_produto,
+def put_atualizar_produto(id_produto,nome_produto, dimensao_produto,
                           preco_produto, peso_produto,
                           cor_produto, descricao_produto):
-    url = f'{url_mestra}/atualizar/produto/{id}'
+    url = f'{url_mestra}/atualizar/produto/{id_produto}'
     produto = {
         'nome_produto': nome_produto,
         'dimensao_produto': dimensao_produto,
@@ -277,38 +288,6 @@ def post_cadastrar_usuario(nome, CPF, email, senha, papel):
         return {"erro": response.json()}
 
 
-def post_cadastro_medicamento( nome_produto, preco_produto, descricao_produto,
-                              dimensao_produto, peso_produto, cor_produto, uso, parte_utilizada, forma_uso, imagem_url):
-    url = f'{url_mestra}/cadastro/medicamento'
-    input_produto = {
-        "nome_produto": nome_produto,
-        "preco_produto": preco_produto,
-        "descricao_produto": descricao_produto,
-        "dimensao_produto": dimensao_produto,
-        "peso_produto": peso_produto,
-        "cor_produto": cor_produto,
-        "uso": uso,
-        "parte_utilizada": parte_utilizada,
-        "forma_uso": forma_uso,
-        "imagem_url": imagem_url
-    }
-    response = requests.post(url, json=input_produto)
-    if response.status_code == 201:
-        dados = response.json()
-        print(f'nome_produto:{dados["nome_produto"]}\n')
-        print(f'preco_produto:{dados["preco_produto"]}\n')
-        print(f'descricao_produto:{dados["descricao_produto"]}\n')
-        print(f'dimensao_produto:{dados["dimensao_produto"]}')
-        print(f'peso_produto:{dados["peso_produto"]}\n')
-        print(f'cor_produto:{dados["cor_produto"]}\n')
-        print(f'uso:{dados["uso"]}\n')
-        print(f'parte_utilizada:{dados["parte_utilizada"]}')
-        print(f'forma_uso:{dados["forma_uso"]}\n')
-        print(f'imagem_url:{dados["imagem_url"]}')
-        return dados
-    else:
-        print(f"erro:{response.status_code}")
-        return {"erro": response.json()}
 
 
 def post_cadastro_produto(nome_produto, preco_produto, categoria_produto, descricao_produto, fabricante_produto,
@@ -428,9 +407,9 @@ def post_login(email, password):
         return {"erro": response.json()}
 
 
-def post_cadastro_medicamento(id_produto, nome_produto, preco_produto, descricao_produto,
+def post_cadastro_medicamento(nome_produto, preco_produto, descricao_produto,
                               fabricante, categoria_produto, dimensao_produto, peso_produto, cor_produto,
-                              uso, parte_utilizada, forma_usu, imagem_url):
+                              uso, parte_utilizada, forma_uso, imagem_url):
     url = f'{url_mestra}/cadastro/medicamento'
     input_medicamento = {
         "nome_produto": nome_produto,
@@ -443,7 +422,7 @@ def post_cadastro_medicamento(id_produto, nome_produto, preco_produto, descricao
         "cor_produto": cor_produto,
         "uso": uso,
         "parte_utilizada": parte_utilizada,
-        "forma_usu": forma_usu,
+        "forma_uso": forma_uso,
         "imagem_url": imagem_url
     }
     response = requests.post(url, json=input_medicamento)
@@ -459,7 +438,7 @@ def post_cadastro_medicamento(id_produto, nome_produto, preco_produto, descricao
         print(f'cor_produto:{dados["cor_produto"]}\n')
         print(f'uso:{dados["uso"]}\n')
         print(f'parte_utilizada:{dados["parte_utilizada"]}\n')
-        print(f'forma_usu:{dados["forma_usu"]}\n')
+        print(f'forma_uso:{dados["forma_uso"]}\n')
         print(f'imagem_url:{dados["imagem_url"]}')
         return dados
     else:

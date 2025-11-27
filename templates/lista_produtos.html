@@ -14,11 +14,11 @@
         <h5 class="titulo">{{ produto.fabricante_produto }}</h5>
         <h5 class="titulo">{{ produto.dimensao_produto }}</h5>
         <h5 class="titulo">{{ produto.peso_produto }}</h5>
-        <h5 class="titulo">{{ produto.cor_produto }}</h5>
+        <h5 class="titulo">{{ produto.cor_produto }}</h5>7
         <h5 class="titulo">{{ produto.uso }}</h5>
         <h5 class="titulo">{{ produto.parte_utilizada }}</h5>
         <h5 class="titulo">{{ produto.imagem_produto }}</h5>
-        <button class="btn w-100 py-2 fw-semibold" type="submit">Editar</button>
+        <a href="{{ url_for('atualizar_produto',id=produto.id_produto)}}"> EDITAR</a>
     </div>
     {% endfor %}
 

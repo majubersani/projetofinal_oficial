@@ -8,60 +8,92 @@
         <div class="row align-items-center">
             <!-- Formulário -->
             <div class="col-md-8">
-                <form>
+                <form action ="{{ url_for('atualizar_produto', id=produto.id_produto)}}" method="post">
                     <div class="mb-3">
                         <label class="form-label">Novo nome</label>
-                        <input type="text" class="form-control" placeholder="Novo nome">
+                        <label>
+                            <input type="text" class="form-control" placeholder="Novo nome" name="nome" value="{{ produto.nome_produto }}">
+                        </label>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Novo preço</label>
-                        <input type="text" class="form-control" placeholder="Novo preço">
+                        <label>
+                            <input type="text" class="form-control" placeholder="Novo preço" name="preco" value="{{ produto.preco_produto }}">
+                        </label>
                     </div>
 
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" checked>
+                        <label>
+                            <input type="checkbox" class="form-check-input" checked name="categoria" value="{{ produto_categoria_produto }}">
+                        </label>
                         <label class="form-check-label">Nova categoria<br><small>Cocar</small></label>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Nova descrição</label>
-                        <input type="text" class="form-control" placeholder="Nova descrição">
+                        <label>
+                            <input type="text" class="form-control" placeholder="Nova descrição" name="descricao" value="{{ produto.descricao_produto}}">
+                        </label>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Novo fabricante</label>
-                        <input type="text" class="form-control" placeholder="Novo fabricante">
+                        <label>
+                            <input type="text" class="form-control" placeholder="Novo fabricante" name="fabricante" value="{{ produto.fabricante }}">
+                        </label>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Nova dimensão</label>
-                        <input type="text" class="form-control" placeholder="Nova dimensão">
+                        <label>
+                            <input type="text" class="form-control" placeholder="Nova dimensão" name="dimensao" value="{{ produto.dimensao_produto }}">
+                        </label>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Novo peso</label>
-                        <input type="text" class="form-control" placeholder="Novo peso">
+                        <label>
+                            <input type="text" class="form-control" placeholder="Novo peso" name="peso" value="{{ produto.peso_produto }}">
+                        </label>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Nova cor</label>
-                        <input type="text" class="form-control" placeholder="Nova cor">
+                        <label>
+                            <input type="text" class="form-control" placeholder="Nova cor" name="cor" value="{{ produto.cor_produto }}">
+                        </label>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Nova imagem URL</label>
-                        <input type="text" class="form-control" placeholder="Nova imagem URL">
+                        <label class="form-label">Novo uso</label>
+                        <label>
+                            <input type="text" class="form-control" placeholder="Novo uso" name="uso" value="">
+                        </label>
                     </div>
 
-                    <button type="submit" class="btn btn-dark w-100">Cadastrar</button>
+                    <div class="mb-3">
+                        <label class="form-label">Nova parte utilizada</label>
+                        <label>
+                            <input type="text" class="form-control" placeholder="Nova parte utilizada" name="parte_utilizada">
+                        </label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nova Imagem URL</label>
+                        <label>
+                            <input type="text" class="form-control" placeholder="Nova Imagem URL" name="imagem">
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark w-100">Atualizar</button>
                 </form>
             </div>
 
             <!-- Imagem lateral -->
             <div class="col-md-4 text-center">
                 <div class="img-box p-2">
-                    <img src="static/img_cadastro_produtos.svg"
+                    <img src="/imagem/img_cadastro_produtos.png"
                          class="img-fluid rounded" alt="Cocar indígena">
                 </div>
             </div>

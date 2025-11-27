@@ -7,13 +7,15 @@
 
     <div class="align-items-center card col-3 m-4">
         <h5 class="titulo">{{ usuario.nome }}</h5>
+        <h5 class="titulo">{{ usuario.cpf }}</h5>
         <h5 class="titulo">{{ usuario.email }}</h5>
-        <button class="btn w-100 py-2 fw-semibold" type="submit">Editar</button>
+        <h5 class="titulo">{{ usuario.password_hash }}</h5>
+        <h5 class="titulo">{{ usuario.papel }}</h5>
+        <a href="{{ url_for('atualizar_cadastro_clientes',id=blog.id_blog)}}"> EDITAR</a>
     </div>
     {% endfor %}
 
 </div>
-
 
 {% endblock conteudo %}
 

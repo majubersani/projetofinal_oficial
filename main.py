@@ -5,6 +5,9 @@ import pandas as pd
 import plotly.express as px
 import plotly.io as pio
 
+from flask import Flask, render_template, request, redirect, url_for, session
+
+
 from flask import Flask, render_template, redirect, url_for, flash, request, session
 import requests  # <-- CORRETO
 
@@ -12,7 +15,8 @@ from rotas import (get_consulta_usuario, get_lista_blog, get_lista_produto, get_
                    get_consulta_produto, get_lista_usuario, get_consulta_blog_id, get_consulta_pedido_id,
                    get_consulta_movimentacao_id, post_cadastro_blog, post_cadastro_movimentacao, put_atualizar_produto,
                    put_atualizar_envio, put_atualizar_usuario, post_cadastrar_usuario, post_cadastro_cartao,
-                   post_cadastro_envio, post_cadastro_produto, put_atualizar_cartao, post_cadastro_medicamento, get_grafico_mais_vendidos)
+                   post_cadastro_envio, post_cadastro_produto, put_atualizar_cartao, post_cadastro_medicamento,
+                   get_grafico_mais_vendidos, get_lista_envio, put_atualizar_blog)
 
 
 def verificar_login():
@@ -114,47 +118,43 @@ def loja_potes():
     return render_template('filtrar_loja_potes.html')
 
 
-@app.route('/atualizar/produto/<int:id>', methods=["POST", "GET"])
+@app.route('/atualizar/usuario/<int:id>', methods=["POST", "GET"])
 def atualizar_usuario(id):
     if not token:
         return redirect(url_for("pagina_inicial"))
-    if request.method == "POST":
-        try:
+    try:
+        if request.method == "POST":
             # Atualiza os campos do produto
             nome = request.form.get('nome')
-            CPF = request.form.get('cpf')
+            cpf = request.form.get('cpf')
             email = request.form.get('email')
             papel = request.form.get('papel')
 
-            if nome and CPF and email and papel:
+            if nome and cpf and email and papel:
 
-                response = put_atualizar_usuario(nome, CPF, email, papel, id, token)
+                response = put_atualizar_usuario(nome, cpf, email, papel)
+
                 print("mmm", response)
-                if response:
+                if 'mensagem' in response:
                     flash("usuario atualizado com sucesso!")
                     return redirect(url_for("lista_usuario"))
                 else:
                     flash(response["erro"])
-        except Exception as e:
-            flash(f"Erro ao atualizar: {str(e)}", "erro")
+                return redirect(url_for('lista_usuario'))
+        usuario = get_consulta_usuario(id)
+        return render_template("atualizar_cadastro_clientes.html", usuario=usuario)
 
-    response = get_consulta_usuario(id, token)
-
-    if not response or "Usuario" not in response:  # evita KeyError
-        flash(response.get("erro", response.get("msg", "Não foi possível carregar o usuario.")), "erro")
-        return redirect(url_for('lista_usuario'))
-
-    dados = response["Usuario"]
-
-    return render_template("atualizar_cadastro_clientes.html", var_usuario=dados)
+    except Exception as e:
+        flash(f"Erro ao atualizar: {str(e)}", "erro")
+        return render_template("atualizar_cadastro_clientes.html")
 
 
 @app.route('/atualizar/produto/<int:id>', methods=["POST", "GET"])
 def atualizar_produto(id):
     if not token:
         return redirect(url_for("pagina_inicial"))
-    if request.method == "POST":
-        try:
+    try:
+        if request.method == "POST":
             # Atualiza os campos do produto
             nome_produto = request.form.get('nome_produto')
             dimensao_produto = request.form.get('dimensao_produto')
@@ -165,33 +165,27 @@ def atualizar_produto(id):
             if nome_produto and dimensao_produto and preco_produto and cor_produto and descricao_produto:
 
                 response = put_atualizar_produto(nome_produto, dimensao_produto, preco_produto, cor_produto,
-                                                 descricao_produto, id, token)
+                                                 descricao_produto, id)
                 print("mmm", response)
-                if response:
+                if 'mensagem' in response:
                     flash("produto atualizado com sucesso!")
                     return redirect(url_for("lista_produto"))
                 else:
                     flash(response["erro"])
-        except Exception as e:
-            flash(f"Erro ao atualizar: {str(e)}", "erro")
-
-    response = get_consulta_produto(id, token)
-
-    if not response or "Produto" not in response:  # evita KeyError
-        flash(response.get("erro", response.get("msg", "Não foi possível carregar o produto.")), "erro")
-        return redirect(url_for('lista_produto'))
-
-    dados = response["Produto"]
-
-    return render_template("atualizar_cadastro_clientes.html", var_produto=dados)
-
+                return redirect(url_for('lista_produto'))
+        produto = get_consulta_produto(id)
+        print(produto)
+        return render_template("atualizar_cadastro_produtos.html", produto=produto)
+    except Exception as e:
+        flash(f"Erro ao atualizar: {str(e)}", "erro")
+        return render_template('atualizar_cadastro_produtos.html')
 
 @app.route('/atualizar/blog/<int:id>', methods=["POST", "GET"])
 def atualizar_blog(id):
     if not token:
         return redirect(url_for("pagina_inicial"))
-    if request.method == "POST":
-        try:
+    try:
+        if request.method == "POST":
             # Atualiza os campos do produto
             titulo = request.form.get('titulo')
             data = request.form.get('data')
@@ -200,34 +194,28 @@ def atualizar_blog(id):
 
             if titulo and data and comentario and usuario_id:
 
-                response = put_atualizar_produto(titulo, data, comentario, usuario_id, id, token)
+                response = put_atualizar_blog(titulo, data, comentario, usuario_id)
                 print("mmm", response)
-                if response:
+                if 'mensagem' in response:
                     flash("blog atualizado com sucesso!")
                     return redirect(url_for("lista_blog"))
                 else:
                     flash(response["erro"])
-        except Exception as e:
-            flash(f"Erro ao atualizar: {str(e)}", "erro")
-
-    response = get_consulta_blog_id(id, token)
-
-    if not response or "Produto" not in response:  # evita KeyError
-        flash(response.get("erro", response.get("msg", "Não foi possível carregar o blog.")), "erro")
-        return redirect(url_for('lista_blog'))
-
-    dados = response["Blog"]
-
-    return render_template("atualizar_cadastro_blog.html", var_blog=dados)
+                return redirect(url_for('lista_blog'))
+        blog = get_consulta_blog_id(id)
+        return render_template('atualizar_cadastro_blog.html', blog=blog)
+    except Exception as e:
+        flash(f'erro ao atualizar: {str(e)}', 'erro')
+        return render_template('atualizar_cadastro_blog.html')
 
 
 @app.route('/atualizar/pedido/<int:id>', methods=["POST", "GET"])
 def atualizar_pedido(id):
     if not token:
         return redirect(url_for("pagina_inicial"))
-    if request.method == "POST":
-        try:
-            # Atualiza os campos do produto
+    try:
+        if request.method == "POST":
+
             usuario_id = request.form.get('usuario_id')
             produto_id = request.form.get('produto_id')
             quantidade = request.form.get('quantidade')
@@ -238,33 +226,27 @@ def atualizar_pedido(id):
             if usuario_id and produto_id and quantidade and valor_total and endereco and vendedor_id:
 
                 response = put_atualizar_produto(usuario_id, produto_id, quantidade, valor_total,
-                                                 endereco, vendedor_id, id, token)
+                                                 endereco, vendedor_id)
                 print("mmm", response)
-                if response:
+                if 'mensagem' in response:
                     flash("pedido atualizado com sucesso!")
                     return redirect(url_for("lista_pedido"))
                 else:
                     flash(response["erro"])
-        except Exception as e:
-            flash(f"Erro ao atualizar: {str(e)}", "erro")
-
-    response = get_consulta_pedido_id(id, token)
-
-    if not response or "Pedido" not in response:  # evita KeyError
-        flash(response.get("erro", response.get("msg", "Não foi possível carregar o pedido.")), "erro")
-        return redirect(url_for('lista_pedido'))
-
-    dados = response["Pedido"]
-
-    return render_template("atualizar_pedido.html", var_pedido=dados)
+                    return redirect(url_for('lista_pedido'))
+            pedido = get_consulta_pedido_id(id)
+            return render_template('atualizar_pedido.html', pedido=pedido)
+    except Exception as e:
+        flash(f'erro ao atualizar: {str(e)}', 'erro')
+        return render_template('atualizar_pedido.html')
 
 
 @app.route('/atualizar/movimentacao/<int:id>', methods=["POST", "GET"])
 def atualizar_movimentacao(id):
     if not token:
         return redirect(url_for("pagina_inicial"))
-    if request.method == "POST":
-        try:
+    try:
+        if request.method == "POST":
             # Atualiza os campos do produto
             quantidade = request.form.get('quantidade')
             produto_id = request.form.get('produto_id')
@@ -281,18 +263,11 @@ def atualizar_movimentacao(id):
                     return redirect(url_for("lista_movimentacao"))
                 else:
                     flash(response["erro"])
-        except Exception as e:
-            flash(f"Erro ao atualizar: {str(e)}", "erro")
-
-    response = get_consulta_movimentacao_id(id, token)
-
-    if not response or "Movimentacao" not in response:  # evita KeyError
-        flash(response.get("erro", response.get("msg", "Não foi possível carregar o movimentacao.")), "erro")
-        return redirect(url_for('lista_movimentacao'))
-
-    dados = response["Movimentacao"]
-
-    return render_template("atualizar_movimentacao.html", var_movimentacao=dados)
+                return  redirect(url_for('lista_movimentacao'))
+        movimentacao = get_consulta_movimentacao_id(id)
+        return render_template("atualizar_movimentacao.html", movimentacao=movimentacao)
+    except Exception as e:
+        flash(f"Erro ao atualizar: {str(e)}", "erro")
 
 
 @app.route("/cadastro/usuario", methods=["GET", "POST"])
@@ -301,22 +276,22 @@ def cadastrar_usuario():
         return redirect(url_for("pagina_inicial"))
     if request.method == "POST":
         nome = request.form.get("nome")
-        CPF = request.form.get("CPF")
+        cpf = request.form.get("cpf")
         email = request.form.get("email")
         senha = request.form.get("senha")
         papel = request.form.get("papel")
 
         print('nome', nome)
-        print('CPF', CPF)
+        print('cpf', cpf)
         print('email', email)
         print('senha', senha)
         print('papel', papel)
 
-        if nome and CPF and email and senha and papel:
+        if nome and cpf and email and senha and papel:
 
             print("antes api")
 
-            response = post_cadastrar_usuario(nome, CPF, email, senha, papel)
+            response = post_cadastrar_usuario(nome, cpf, email, senha, papel)
 
             print(response)
 
@@ -446,9 +421,9 @@ def cadastro_medicamento():
     if request.method == "POST":
         nome_produto = request.form.get("nome")
         preco_produto = request.form.get("preco")
-        categoria_produto = request.form.get("categoria")
         descricao_produto = request.form.get("descricao")
-        fabricante_produto = request.form.get("fabricante")
+        fabricante = request.form.get("fabricante")
+        categoria_produto = request.form.get("categoria")
         dimensao_produto = request.form.get("dimensao")
         peso_produto = request.form.get("peso")
         cor_produto = request.form.get("cor")
@@ -457,24 +432,25 @@ def cadastro_medicamento():
         forma_uso = request.form.get("forma_uso")
         imagem_url = request.form.get("imagem_url")
 
-        if (nome_produto and preco_produto and descricao_produto and dimensao_produto and peso_produto
-                and cor_produto and uso and parte_utilizada and forma_uso and imagem_url):
-
+        if nome_produto and preco_produto and descricao_produto and fabricante and categoria_produto and dimensao_produto and peso_produto and cor_produto and uso and parte_utilizada and forma_uso and imagem_url:
             print('antes api')
-            response = post_cadastro_medicamento(nome_produto, preco_produto, descricao_produto,
-                                              dimensao_produto, peso_produto, cor_produto, uso,
-                                              parte_utilizada, forma_uso, imagem_url)
+            response = post_cadastro_medicamento(nome_produto, preco_produto, descricao_produto, fabricante,
+                                                 categoria_produto, dimensao_produto, peso_produto, cor_produto,
+                                                 uso, parte_utilizada, forma_uso, imagem_url)
+            print(response)
 
             if response:
                 flash("medicamento cadastrado com sucesso!")
-                return redirect(url_for("lista_produto"))
-
             else:
                 if "erro" in response:
                     flash(response["erro"])
                 else:
+                    print('erro')
                     flash(response["msg"])
                 return redirect(url_for("pagina_inicial"))
+        else:
+            print("preencha todos os campos app")
+
 
     return render_template("cadastro_medicinais.html")
 
@@ -719,6 +695,21 @@ def lista_usuario():
 
     return render_template("lista_clientes.html", usuarios=usuarios)
 
+@app.route("/lista/envio")
+def lista_envio():
+    dados = get_lista_envio()
+    print("Dados recebidos:", dados)
+
+    if "envios" in dados:
+        envios = dados["envios"]
+    else:
+        if "erro" in dados:
+            flash(dados["erro"])
+        else:
+            flash("Não foi possível listar os envios.")
+        return redirect(url_for("index"))
+
+    return render_template("lista_infos_envio.html", envios=envios)
 
 @app.route("/lista/produto")
 def lista_produto():
@@ -900,6 +891,49 @@ def grafico():
     except Exception as e:
         flash(f"Erro ao gerar relatório: {str(e)}", "danger")
         return render_template("grafico.html", grafico_vendidos=None)
+
+def get_carrinho():
+    if "carrinho" not in session:
+        session["carrinho"] = []
+    return session["carrinho"]
+
+@app.route("/carrinho/adicionar/<int:id_produto>")
+def adicionar_carrinho(id_produto):
+    db = SessionLocal()
+    produto = db.query(Produto).filter_by(id_produto=id_produto).first()
+
+    if not produto:
+        return "Produto não encontrado", 404
+
+    carrinho = get_carrinho()
+    carrinho.append({
+        "id": produto.id_produto,
+        "nome": produto.nome_produto,
+        "preco": float(produto.preco_produto.replace(",", "."))
+    })
+
+    session["carrinho"] = carrinho
+
+    return redirect(url_for("mostrar_carrinho"))
+
+@app.route("/carrinho")
+def mostrar_carrinho():
+    carrinho = get_carrinho()
+    total = sum(item["preco"] for item in carrinho)
+    return render_template("carrinho.html", carrinho=carrinho, total=total)
+
+@app.route("/carrinho/remover/<int:index>")
+def remover_item(index):
+    carrinho = get_carrinho()
+    if 0 <= index < len(carrinho):
+        carrinho.pop(index)
+        session["carrinho"] = carrinho
+    return redirect(url_for("mostrar_carrinho"))
+
+@app.route("/carrinho/limpar")
+def limpar_carrinho():
+    session["carrinho"] = []
+    return redirect(url_for("mostrar_carrinho"))
 
 
 if __name__ == '__main__':

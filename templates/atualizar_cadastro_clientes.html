@@ -9,7 +9,7 @@
                 <div class="form-row">
                     <div class="mb-3 m-3 fonte">
                         <label for="nome">Novo nome</label>
-                        <input id="nome" type="text" class="form-control is-invalid" placeholder="Novo nome" value=""
+                        <input id="nome" type="text" class="form-control is-invalid" placeholder="Novo nome" value="{{usuario.nome}}"
                                required>
                     </div>
                     <div class="mb-3 m-3 fonte">
@@ -18,7 +18,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroupPrepend3">@</span>
                             </div>
-                            <input id="email" type="text" class="form-control is-invalid" placeholder="Novo email"
+                            <input id="email" type="text" class="form-control is-invalid" placeholder="Novo email"  value="{{usuario.email}}"
                                    aria-describedby="inputGroupPrepend3" required>
                         </div>
                     </div>
@@ -26,17 +26,12 @@
                 <div class="form-row">
                     <div class="mb-3 m-3 fonte">
                         <label for="cpf">Novo CPF</label>
-                        <input id="cpf" type="text" class="form-control is-invalid" placeholder="Novo CPF" required>
+                        <input id="cpf" type="text" class="form-control is-invalid" placeholder="Novo CPF"  value="{{usuario.CPF}}" required>
                     </div>
                     <div class="mb-3 m-3 fonte">
                         <label for="senha">Nova senha</label>
-                        <input id="senha" type="text" class="form-control is-invalid" placeholder="Nova senha" required>
-                    </div>
-                    <div class="mb-3 m-3 fonte">
-                        <label for="confirmar_senha">Confirmar senha</label>
-                        <input id="confirmar_senha" type="text" class="form-control is-invalid"
-                               placeholder="Confirmar senha" required>
-                    </div>
+                        <input id="senha" type="text" class="form-control is-invalid" placeholder="Nova senha"  value="{{usuario.senha}}" required>
+                    </div>m
                 </div>
                 <div class="form-group">
                     <div class="form-check m-3 fonte">

@@ -3,11 +3,18 @@
 {% block conteudo %}
 
 <div class="cards row justify-content-around">
-    {% for produto in produtos %}
+    {% for envio in envio %}
 
     <div class="align-items-center card col-3 m-4">
-        <h5 class="titulo">Infos de envio</h5>
-        <button class="btn w-100 py-2 fw-semibold" type="submit">Editar</button>
+        <h5 class="titulo">{{ envio.usuario_id }}</h5>
+        <h5 class="titulo">{{ envio.nome_destinatario }}</h5>
+        <h5 class="titulo">{{ envio.endereco }}</h5>
+        <h5 class="titulo">{{ envio.cidade }}</h5>
+        <h5 class="titulo">{{ envio.estado }}</h5>
+        <h5 class="titulo">{{ envio.CEP }}</h5>
+        <h5 class="titulo">{{ envio.telefone }}</h5>
+        <h5 class="titulo">{{ envio.email }}</h5>
+        <a href="{{ url_for('atualizar_infos_envio',id=envio.id_envio)}}"> EDITAR</a>
     </div>
     {% endfor %}
 

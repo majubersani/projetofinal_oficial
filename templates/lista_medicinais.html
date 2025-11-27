@@ -18,7 +18,7 @@
         <h5 class="titulo">{{ medicinal.parte_utilizada }}</h5>
         <h5 class="titulo">{{ medicinal.forma_uso }}</h5>
         <h5 class="titulo">{{ medicinal.imagem_url}}</h5>
-        <button class="btn w-100 py-2 fw-semibold" type="submit">Editar</button>
+        <a href="{{ url_for('atualizar_cadastro_medicinais',id=medicinal.id_)}}"> EDITAR</a>
     </div>
     {% endfor %}
 
