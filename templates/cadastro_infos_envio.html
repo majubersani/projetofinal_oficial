@@ -2,54 +2,97 @@
 
 {% block conteudo %}
 
-<!-- CONTEÚDO PRINCIPAL -->
-<div class="content-wrapper">
-    <!-- FORMULÁRIO -->
-    <div class="form-container">
-        <h4>Cadastre suas informações de envio</h4>
-        <form>
-            <div class="mb-3">
-                <label>
-                    <input type="text" class="form-control" placeholder="Nome do destinatário">
-                </label>
-            </div>
-            <div class="mb-3">
-                <label>
-                    <input type="text" class="form-control" placeholder="Endereço">
-                </label>
-            </div>
-            <div class="mb-3">
-                <label>
-                    <input type="text" class="form-control" placeholder="Cidade">
-                </label>
-            </div>
-            <div class="mb-3">
-                <label>
-                    <input type="text" class="form-control" placeholder="Estado">
-                </label>
-            </div>
-            <div class="mb-3">
-                <label>
-                    <input type="text" class="form-control" placeholder="CEP">
-                </label>
-            </div>
-            <div class="mb-3">
-                <label>
-                    <input type="text" class="form-control" placeholder="Telefone">
-                </label>
-            </div>
-            <div class="mb-3">
-                <label>
-                    <input type="email" class="form-control" placeholder="Email">
-                </label>
-            </div>
-            <button type="submit" class="btn btn-save">Salvar</button>
-        </form>
-    </div>
+<div class="container-fluid main-section-envio py-5">
+    <div class="container form-box-envio p-4">
+        <div class="row align-items-center">
 
-    <!-- ILUSTRAÇÃO -->
-    <div class="illustration">
-        <img src="/imagem/img_cadastro_infos_envio.png" alt="Ilustração indígena" >
+            <!-- Formulário -->
+            <div class="col-md-8">
+                <h4 class="titulo">Cadastre suas informações de envio</h4>
+
+                <!-- Corrigido -->
+                <form action="{{ url_for('cadastro_envio') }}" method="post">
+
+                     <div class="mb-3">
+                        <label>
+                            <input type="text" class="form-control"
+                                   placeholder="Usuario id"
+                                   name="usuario_id" required>
+                        </label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>
+                            <input type="text" class="form-control"
+                                   placeholder="Nome do destinatário"
+                                   name="nome_destinatario" required>
+                        </label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>
+                            <input type="text" class="form-control"
+                                   placeholder="Endereço"
+                                   name="endereco" required>
+                        </label>
+                    </div>
+
+                    <!-- Campo que estava faltando -->
+                    <div class="mb-3">
+                        <label>
+                            <input type="text" class="form-control"
+                                   placeholder="Cidade"
+                                   name="cidade" required>
+                        </label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>
+                            <input type="text" class="form-control"
+                                   placeholder="Estado"
+                                   name="estado" required>
+                        </label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>
+                            <input type="text" class="form-control"
+                                   placeholder="CEP"
+                                   name="CEP" required>
+                        </label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>
+                            <input type="text" class="form-control"
+                                   placeholder="Telefone"
+                                   name="telefone" required>
+                        </label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>
+                            <input type="email" class="form-control"
+                                   placeholder="Email"
+                                   name="email" required>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark-envio w-100">
+                        Salvar
+                    </button>
+                </form>
+            </div>
+
+            <!-- Imagem lateral -->
+            <div class="col-md-4 text-center">
+                <div class="img-box-envio p-2">
+                    <img src="/imagem/img_cadastro_infos_envio.png"
+                         class="img-fluid rounded" alt="">
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>
 

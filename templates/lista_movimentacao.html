@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<div class="cards row justify-content-around">
+    {% for movimentacao in movimentacoes %}
+
+    <div class="align-items-center card col-3 m-4">
+        <h5 class="titulo">{{ movimentacao.usuario_id}}</h5>
+        <h5 class="titulo">{{ movimentacao.quantidade }}</h5>
+        <h5 class="titulo">{{ movimentacao.produto_id }}</h5>
+        <h5 class="titulo">{{ movimentacao.data }}</h5>
+        <h5 class="titulo">{{ movimentacao.status }}</h5>
+        <button class="btn w-100 py-2 fw-semibold" type="submit">Editar</button>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock conteudo %}

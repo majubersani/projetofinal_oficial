@@ -3,10 +3,25 @@
 {% block conteudo %}
 
 <div class="cards row justify-content-around">
+    {% for medicinal in medicinais %}
+
     <div class="align-items-center card col-3 m-4">
-        <h5 class="titulo">Medicinais</h5>
+        <h5 class="titulo">{{ medicinal.nome_produto }}</h5>
+        <h5 class="titulo">{{ medicinal.preco_produto }}</h5>
+        <h5 class="titulo">{{ medicinal.categoria_produto }}</h5>
+        <h5 class="titulo">{{ medicinal.descricao_produto }}</h5>
+        <h5 class="titulo">{{ medicinal.fabricante_produto }}</h5>
+        <h5 class="titulo">{{ medicinal.dimensao_produto }}</h5>
+        <h5 class="titulo">{{ medicinal.peso_produto }}</h5>
+        <h5 class="titulo">{{ medicinal.cor_produto }}</h5>
+        <h5 class="titulo">{{ medicinal.uso }}</h5>
+        <h5 class="titulo">{{ medicinal.parte_utilizada }}</h5>
+        <h5 class="titulo">{{ medicinal.forma_uso }}</h5>
+        <h5 class="titulo">{{ medicinal.imagem_url}}</h5>
         <button class="btn w-100 py-2 fw-semibold" type="submit">Editar</button>
     </div>
+    {% endfor %}
+
 </div>
 
 {% endblock conteudo %}

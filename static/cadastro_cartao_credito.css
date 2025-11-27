@@ -1,21 +1,57 @@
-/* Barra superior */
-.menu-topo {
-  background-color: #f5af28;
+.navegar{
+  background-color: #F2B544;
 }
 
-.nav-link {
-  color: white !important;
-  margin: 0 8px;
-  font-weight: 500;
-}
-
-.nav-link:hover {
-  text-decoration: underline;
-}
-
-/* Fundo geral */
 body {
-  background-color: #e6dfd4;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Barra superior */
+.topbar {
+  background-color: #8e9f77;
+  padding: 10px 30px;
+}
+
+.topbar .nav-link {
+  color: white;
+  font-weight: 500;
+  margin-right: 20px;
+}
+
+.topbar .nav-link.active {
+  color: #004d66;
+  font-weight: 700;
+}
+
+/* Seção principal */
+.main-section-cartao {
+  background-color: #8e9f77;
+  border-radius: 10px;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.form-box-cartao {
+  background: white;
+  border-radius: 10px;
+  max-width: 900px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Botão */
+.btn-dark-cartao {
+  font-weight: bold;
+}
+
+/* Imagem lateral */
+.img-box-cartao {
+  background: #e8a533;
+  border-radius: 15px;
+}
+
+.footer_cor {
+  background-color: #9AA97F;
 }
 
 /* Título */
@@ -23,34 +59,5 @@ body {
   color: #7b2c21;
   font-family: 'Georgia', serif;
   font-weight: bold;
-  margin-top: 40px;
-}
-
-/* Caixa do formulário */
-.form-box {
-  background-color: white;
-  border: 2px solid #a26ce6;
-  border-radius: 8px;
-  max-width: 400px;
-}
-
-.form-label {
-  color: #333;
-  font-weight: 500;
-}
-
-.form-control {
-  border: 1px dashed #a26ce6;
-}
-
-.btn-dark {
-  background-color: black;
-  border: none;
-  font-weight: 600;
-}
-
-/* Imagem dos cartões */
-.cartoes {
-  width: 300px;
-  margin-top: 50px;
+  margin-top: 30px;
 }

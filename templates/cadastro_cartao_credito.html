@@ -2,51 +2,52 @@
 
 {% block conteudo %}
 
-<!-- Conteúdo principal -->
-<section class="container-fluid conteudo">
-    <div class="row justify-content-center align-items-center m-5">
-        <div class="col-md-5 text-center">
+<!-- Área principal -->
+<div class="container-fluid main-section-cartao py-5">
+    <div class="container form-box-cartao p-4">
+        <div class="row align-items-center">
             <h2 class="titulo">Cadastre seu cartão</h2>
+            <!-- Formulário -->
+            <div class="col-md-8">
+                <form action="{{ url_for('cadastro_cartao') }}" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Usuario_id</label>
+                        <input type="text" name="usuario_id" value="{{ usuario_id }}">
+                    </div>
 
-            <div class="form-box mx-auto mt-4 p-4">
-                <form>
                     <div class="mb-3">
                         <label class="form-label">Nome do titular</label>
-                        <label>
-                            <input type="text" class="form-control" placeholder="Nome do titular">
-                        </label>
+                        <input type="text" class="form-control" placeholder="Nome do titular" name="nome_titular">
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Número do cartão</label>
-                        <label>
-                            <input type="text" class="form-control" placeholder="Número do cartão">
-                        </label>
+                        <input type="text" class="form-control" placeholder="Número do cartão" name="numero_cartao">
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Data de validade</label>
-                        <label>
-                            <input type="text" class="form-control" placeholder="Data de validade">
-                        </label>
+                        <input type="text" class="form-control" placeholder="Data de validade" name="data_validade">
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">CVV</label>
-                        <label>
-                            <input type="text" class="form-control" placeholder="CVV">
-                        </label>
+                        <input type="text" class="form-control" placeholder="CVV" name="CVV">
                     </div>
 
-                    <button type="submit" class="btn btn-dark w-100">Salvar</button>
+                    <button type="submit" class="btn btn-dark-cartao w-100">Salvar</button>
                 </form>
             </div>
-        </div>
 
-        <div class="col-md-5 text-center">
-            <img src="/imagem/img_cartao_de_credito.svg" alt="Cartões" class="img-fluid cartoes">
+            <!-- Imagem lateral -->
+            <div class="col-md-4 text-center">
+                <div class="img-box-cartao p-2">
+                    <img src="{{ url_for('static', filename='imagens/img_cartao_de_credito.svg') }}"
+                         class="img-fluid rounded" alt="">
+                </div>
+            </div>
         </div>
     </div>
-</section>
+</div>
 
 {% endblock conteudo %}

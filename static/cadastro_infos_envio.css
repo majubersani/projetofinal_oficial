@@ -1,88 +1,63 @@
+.navegar{
+  background-color: #F2B544;
+}
+
 body {
-    background-color: white;
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* NAVBAR SUPERIOR */
-.navbar-custom {
-    background-color: #f4a62a;
-    padding: 10px 20px;
+/* Barra superior */
+.topbar {
+  background-color: #8e9f77;
+  padding: 10px 30px;
 }
 
-.navbar-custom .nav-link {
-    color: white;
-    font-weight: 500;
-    margin-right: 15px;
+.topbar .nav-link {
+  color: white;
+  font-weight: 500;
+  margin-right: 20px;
 }
 
-.navbar-custom .nav-link:hover {
-    color: #333;
+.topbar .nav-link.active {
+  color: #004d66;
+  font-weight: 700;
 }
 
-.navbar-toggler {
-    border: none;
+/* Seção principal */
+.main-section-envio {
+  background-color: #8e9f77;
+  border-radius: 10px;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
 }
 
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255,255,255,1%29)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+.form-box-envio {
+  background: white;
+  border-radius: 10px;
+  max-width: 900px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* CONTEÚDO PRINCIPAL */
-.content-wrapper {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 40px 60px;
-    flex-wrap: wrap;
+/* Botão */
+.btn-dark-envio {
+  font-weight: bold;
 }
 
-/* FORMULÁRIO */
-.form-container {
-    background-color: #9AA97F;
-    border-radius: 6px;
-    padding: 30px;
-    width: 500px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* Imagem lateral */
+.img-box-envio {
+  background: #e8a533;
+  border-radius: 15px;
 }
 
-.form-container h4 {
-    color: #7b2e1e;
-    font-weight: 700;
-    font-style: italic;
-    margin-bottom: 25px;
-    text-align: center;
+.footer_cor {
+  background-color: #9AA97F;
 }
 
-.form-control {
-    border-radius: 4px;
-}
-
-.btn-save {
-    background-color: #000;
-    color: #fff;
-    width: 100%;
-    font-weight: 500;
-}
-
-.btn-save:hover {
-    background-color: #333;
-}
-
-/* ILUSTRAÇÃO */
-.illustration img {
-    max-width: 600px;
-    height: auto;
-}
-
-@media (max-width: 768px) {
-    .content-wrapper {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .form-container {
-        margin-bottom: 30px;
-    }
+/* Título */
+.titulo {
+  color: #7b2c21;
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  margin-top: 30px;
 }

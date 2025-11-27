@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+
+<!-- Conteúdo principal -->
+<section class="container-fluid conteudo">
+    <div class="row justify-content-center align-items-center m-5">
+        <div class="col-md-5 text-center">
+            <h2 class="titulo">Cadastre seu cartão</h2>
+
+            <div class="form-box mx-auto mt-4 p-4">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Novo nome do titular</label>
+                        <label>
+                            <input type="text" class="form-control" placeholder="Novo nome do titular">
+                        </label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Novo número do cartão</label>
+                        <label>
+                            <input type="text" class="form-control" placeholder="Novo número do cartão">
+                        </label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nova data de validade</label>
+                        <label>
+                            <input type="text" class="form-control" placeholder="Nova data de validade">
+                        </label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Novo CVV</label>
+                        <label>
+                            <input type="text" class="form-control" placeholder="Novo CVV">
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark w-100">Salvar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-5 text-center">
+            <img src="/imagem/img_cartao_de_credito.svg" alt="Cartões" class="img-fluid cartoes">
+        </div>
+    </div>
+</section>
+
+
+{% endblock conteudo %}

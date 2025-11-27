@@ -2,12 +2,12 @@
 
 {% block conteudo %}
 
+<h5>Produtos</h5>
 <div class="cards row justify-content-around">
-    {% for usuario in usuarios %}
+    {% for pedido in pedidos %}
 
     <div class="align-items-center card col-3 m-4">
-        <h5 class="titulo">{{ usuario.nome }}</h5>
-        <h5 class="titulo">{{ usuario.email }}</h5>
+        <h5 class="titulo">{{ produto.nome_produto }}</h5>
         <button class="btn w-100 py-2 fw-semibold" type="submit">Editar</button>
     </div>
     {% endfor %}
@@ -16,4 +16,3 @@
 
 
 {% endblock conteudo %}
-
