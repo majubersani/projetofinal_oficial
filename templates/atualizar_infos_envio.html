@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+
+<!-- CONTEÚDO PRINCIPAL -->
+<div class="content-wrapper">
+    <!-- FORMULÁRIO -->
+    <div class="form-container">
+        <h4>Cadastre suas informações de envio</h4>
+        <form>
+            <div class="mb-3">
+                <label>
+                    <input type="text" class="form-control" placeholder="Nome do destinatário">
+                </label>
+            </div>
+            <div class="mb-3">
+                <label>
+                    <input type="text" class="form-control" placeholder="Endereço">
+                </label>
+            </div>
+            <div class="mb-3">
+                <label>
+                    <input type="text" class="form-control" placeholder="Cidade">
+                </label>
+            </div>
+            <div class="mb-3">
+                <label>
+                    <input type="text" class="form-control" placeholder="Estado">
+                </label>
+            </div>
+            <div class="mb-3">
+                <label>
+                    <input type="text" class="form-control" placeholder="CEP">
+                </label>
+            </div>
+            <div class="mb-3">
+                <label>
+                    <input type="text" class="form-control" placeholder="Telefone">
+                </label>
+            </div>
+            <div class="mb-3">
+                <label>
+                    <input type="email" class="form-control" placeholder="Email">
+                </label>
+            </div>
+            <button type="submit" class="btn btn-save">Salvar</button>
+        </form>
+    </div>
+
+    <!-- ILUSTRAÇÃO -->
+    <div class="illustration">
+        <img src="static/img_cadastro_infos_envio.svg" alt="Ilustração indígena" >
+    </div>
+</div>
+
+
+{% endblock conteudo %}

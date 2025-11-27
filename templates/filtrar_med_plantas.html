@@ -4,10 +4,10 @@
 
     <!-- Sidebar -->
     <aside class="col-md-2 aside-tribal p-3">
-      <a class="nav-link text-white" href="medicinais.html"><h5 class="fw-bold text-white">Categorias</h5></a>
+      <a class="nav-link text-white" href="{{ url_for('medicinais') }}"><h5 class="fw-bold text-white">Categorias</h5></a>
       <ul class="nav flex-column">
-        <li class="nav-item"><a class="fw-bold nav-link text-white" href="filtrar_med_ervas.html">Ervas</a></li>
-        <li class="nav-item"><a class="fw-bold nav-link text-primary" href="filtrar_med_plantas.html">Plantas</a></li>
+        <li class="nav-item"><a class="fw-bold nav-link text-white" href="{{ url_for('medicinais_ervas') }}">Ervas</a></li>
+        <li class="nav-item"><a class="fw-bold nav-link text-primary" href="{{ url_for('medicinais_plantas') }}">Plantas</a></li>
       </ul>
     </aside>
 

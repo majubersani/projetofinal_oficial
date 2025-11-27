@@ -8,50 +8,82 @@
         <div class="row align-items-center">
             <!-- Formulário -->
             <div class="col-md-8">
-                <form>
+                <form action ="{{ url_for('cadastro_produto')}}" method="post">
                     <div class="mb-3">
                         <label class="form-label">Nome</label>
-                        <input type="text" class="form-control" placeholder="Nome">
+                        <label>
+                            <input type="text" class="form-control" placeholder="Nome" name="nome">
+                        </label>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Preço</label>
-                        <input type="text" class="form-control" placeholder="Preço">
+                        <label>
+                            <input type="text" class="form-control" placeholder="Preço" name="preco">
+                        </label>
                     </div>
 
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" checked>
+                        <label>
+                            <input type="checkbox" class="form-check-input" checked name="categoria">
+                        </label>
                         <label class="form-check-label">Categoria<br><small>Cocar</small></label>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Descrição</label>
-                        <input type="text" class="form-control" placeholder="Descrição">
+                        <label>
+                            <input type="text" class="form-control" placeholder="Descrição" name="descricao">
+                        </label>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Fabricante</label>
-                        <input type="text" class="form-control" placeholder="Fabricante">
+                        <label>
+                            <input type="text" class="form-control" placeholder="Fabricante" name="fabricante">
+                        </label>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Dimensão</label>
-                        <input type="text" class="form-control" placeholder="Dimensão">
+                        <label>
+                            <input type="text" class="form-control" placeholder="Dimensão" name="dimensao">
+                        </label>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Peso</label>
-                        <input type="text" class="form-control" placeholder="Peso">
+                        <label>
+                            <input type="text" class="form-control" placeholder="Peso" name="peso">
+                        </label>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Cor</label>
-                        <input type="text" class="form-control" placeholder="Cor">
+                        <label>
+                            <input type="text" class="form-control" placeholder="Cor" name="cor">
+                        </label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Uso</label>
+                        <label>
+                            <input type="text" class="form-control" placeholder="Uso" name="uso">
+                        </label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Parte utilizada</label>
+                        <label>
+                            <input type="text" class="form-control" placeholder="parte utilizada" name="parte_utilizada">
+                        </label>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Imagem URL</label>
-                        <input type="text" class="form-control" placeholder="Imagem URL">
+                        <label>
+                            <input type="text" class="form-control" placeholder="Imagem URL" name="imagem">
+                        </label>
                     </div>
 
                     <button type="submit" class="btn btn-dark w-100">Cadastrar</button>

@@ -2,11 +2,27 @@
 
 {% block conteudo %}
 
+<h5>Produtos</h5>
 <div class="cards row justify-content-around">
+    {% for produto in produtos %}
+
     <div class="align-items-center card col-3 m-4">
-        <h5 class="titulo">Produtos</h5>
+        <h5 class="titulo">{{ produto.nome_produto }}</h5>
+        <h5 class="titulo">{{ produto.preco_produto }}</h5>
+        <h5 class="titulo">{{ produto.categoria_produto }}</h5>
+        <h5 class="titulo">{{ produto.descricao_produto }}</h5>
+        <h5 class="titulo">{{ produto.fabricante_produto }}</h5>
+        <h5 class="titulo">{{ produto.dimensao_produto }}</h5>
+        <h5 class="titulo">{{ produto.peso_produto }}</h5>
+        <h5 class="titulo">{{ produto.cor_produto }}</h5>
+        <h5 class="titulo">{{ produto.uso }}</h5>
+        <h5 class="titulo">{{ produto.parte_utilizada }}</h5>
+        <h5 class="titulo">{{ produto.imagem_produto }}</h5>
         <button class="btn w-100 py-2 fw-semibold" type="submit">Editar</button>
     </div>
+    {% endfor %}
+
 </div>
+
 
 {% endblock conteudo %}

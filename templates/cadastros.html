@@ -14,7 +14,7 @@
                 <div class="col-md-4 ">
                     <div class="card text-center shadow-sm">
                         <div class="card-body">
-                            <a href="#" class="btn btn-success btn-sm">Cadastro de produtos</a>
+                            <a href="{{ url_for('cadastro_produto') }}" class="btn btn-success btn-sm">Cadastro de produtos</a>
                         </div>
                     </div>
                 </div>
@@ -23,7 +23,47 @@
                 <div class="col-md-4 ">
                     <div class="card text-center shadow-sm">
                         <div class="card-body">
-                            <a href="#" class="btn btn-success btn-sm">Cadastro de medicinais</a>
+                            <a href="{{ url_for('cadastro_medicamento') }}" class="btn btn-success btn-sm">Cadastro de medicinais</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 ">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body">
+                            <a href="{{ url_for('cadastro_envio') }}" class="btn btn-success btn-sm">Cadastro dados de Envio</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 ">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body">
+                            <a href="{{ url_for('cadastrar_usuario') }}" class="btn btn-success btn-sm">Cadastro de clientes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 ">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body">
+                            <a href="{{ url_for('cadastro_cartao') }}" class="btn btn-success btn-sm">Cadastro Cartao de credito</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 ">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body">
+                            <a href="{{ url_for('cadastro_blog') }}" class="btn btn-success btn-sm">Cadastro de blog</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 ">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body">
+                            <a href="{{ url_for('cadastro_movimentacao') }}" class="btn btn-success btn-sm">Cadastro de movimentacao</a>
                         </div>
                     </div>
                 </div>
@@ -39,7 +79,6 @@
                                            required>
                                 </div>
                             </form>
-                                <a href="#" class="btn btn-success btn-sm">Ver Produto</a>
                         </div>
                     </div>
                 </div>

@@ -4,12 +4,12 @@
 
     <!-- Sidebar -->
     <aside class="col-md-2 aside-tribal p-3">
-      <h5 class="fw-bold"><a href="loja.html" class="text-white text-decoration-none">Categorias</a></h5>
+      <h5 class="fw-bold"><a href="{{ url_for('loja') }}" class="text-white text-decoration-none">Categorias</a></h5>
       <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link active" href="filtrar_loja_cocares.html">Cocares</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="filtrar_loja_instrumentos.html">Instrumentos</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="filtrar_loja_potes.html">Potes</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="filtrar_loja_bonecos.html">Bonecos</a></li>
+        <li class="nav-item"><a class="nav-link active" href="{{ url_for('loja_cocares') }}">Cocares</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="{{ url_for('loja_instrumentos') }}">Instrumentos</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="{{ url_for('loja_potes') }}">Potes</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="{{ url_for('loja_bonecos') }}">Bonecos</a></li>
       </ul>
     </aside>
 

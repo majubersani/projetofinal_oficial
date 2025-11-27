@@ -18,10 +18,10 @@
   <link rel="stylesheet" href="/static/detalhes_medicinais.css">
   <link rel="stylesheet" href="/static/carrinho.css">
   <link rel="stylesheet" href="/static/cadastro_produtos.css">
-  <link rel="stylesheet" href="/static/cadastro_infos_envio.css">
   <link rel="stylesheet" href="/static/cadastro_cliente.css">
   <link rel="stylesheet" href="/static/cadastro_cartao_credito.css">
   <link rel="stylesheet" href="/static/cadastro_medicinais.css">
+  <link rel="stylesheet" href="/static/cadastro_infos_envio.css">
   <link rel="stylesheet" href="/static/blog.css">
   <link rel="stylesheet" href="/static/style.css">
 </head>
@@ -32,12 +32,13 @@
   <div class="d-flex flex-row align-items-center">
     <i class="icon bi bi-list"></i>
     <ul class="navbar-nav d-flex flex-row">
-      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="pagina_inicial.html">Página Inicial</a></li>
-      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="login.html">Login</a></li>
-      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="cadastros.html">Cadastros</a></li>
-      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="loja.html">Loja</a></li>
-      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="medicinais.html">Medicinais</a></li>
-      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="blog.html">Blog</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="{{ url_for('index') }}">Página Inicial</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="{{ url_for('login') }}">Login</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="{{ url_for('cadastro')}}">Cadastros</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="{{ url_for('listas')}}">listas</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="{{ url_for('loja') }}">Loja</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="{{ url_for('medicinais') }}">Medicinais</a></li>
+      <li class="nav-item m-2"><a class="nav-link titulo text-white" href="{{ url_for('blog') }}">Blog</a></li>
     </ul>
   </div>
   <div class="d-flex align-items-center">
@@ -45,7 +46,6 @@
     <a class="navbar-brand ps-3"><img src="/imagem/logo.svg" width="70px" alt="Logo"></a>
   </div>
 </nav>
-
 
  {% block conteudo %}
 
