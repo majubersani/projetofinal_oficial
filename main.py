@@ -27,6 +27,7 @@ def verificar_login():
 
 app = Flask(__name__)
 
+
 app.config['SECRET_KEY'] = 'secret!'
 
 
