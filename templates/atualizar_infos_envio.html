@@ -2,55 +2,55 @@
 
 {% block conteudo %}
 
-
 <!-- CONTEÚDO PRINCIPAL -->
 <div class="content-wrapper">
     <!-- FORMULÁRIO -->
     <div class="form-container">
         <h4>Cadastre suas informações de envio</h4>
-        <form>
+        <form action="{{ url_for('atualizar_envio', id=envio.id_envio)}}" method="post">
             <div class="mb-3">
                 <label>
-                    <input type="text" class="form-control" placeholder="Nome do destinatário">
+                    <input type="text" class="form-control" placeholder="Nome do destinatário"
+                           value=" {{ envio.nome_destinatario}}">
                 </label>
             </div>
             <div class="mb-3">
                 <label>
-                    <input type="text" class="form-control" placeholder="Endereço">
+                    <input type="text" class="form-control" placeholder="Endereço" value=" {{ envio.endereco }}">
                 </label>
             </div>
             <div class="mb-3">
                 <label>
-                    <input type="text" class="form-control" placeholder="Cidade">
+                    <input type="text" class="form-control" placeholder="Cidade" value=" {{ envio.cidade }}">
                 </label>
             </div>
             <div class="mb-3">
                 <label>
-                    <input type="text" class="form-control" placeholder="Estado">
+                    <input type="text" class="form-control" placeholder="Estado" value=" {{ envio.estado }}">
                 </label>
             </div>
             <div class="mb-3">
                 <label>
-                    <input type="text" class="form-control" placeholder="CEP">
+                    <input type="text" class="form-control" placeholder="CEP" value=" {{ envio.CEP }}">
                 </label>
             </div>
             <div class="mb-3">
                 <label>
-                    <input type="text" class="form-control" placeholder="Telefone">
+                    <input type="text" class="form-control" placeholder="Telefone" value=" {{ envio.telefone }}">
                 </label>
             </div>
             <div class="mb-3">
                 <label>
-                    <input type="email" class="form-control" placeholder="Email">
+                    <input type="email" class="form-control" placeholder="Email" value=" {{ envio.email }}">
                 </label>
             </div>
-            <button type="submit" class="btn btn-save">Salvar</button>
+            <button type="submit" class="btn btn-save">Atualizar</button>
         </form>
     </div>
 
     <!-- ILUSTRAÇÃO -->
     <div class="illustration">
-        <img src="static/img_cadastro_infos_envio.svg" alt="Ilustração indígena" >
+        <img src="static/img_cadastro_infos_envio.svg" alt="Ilustração indígena">
     </div>
 </div>
 

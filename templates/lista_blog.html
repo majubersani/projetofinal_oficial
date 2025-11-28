@@ -11,7 +11,7 @@
         <h5 class="titulo">{{ blog.titulo}}</h5>
         <h5 class="titulo">{{ blog.comentario}}</h5>
         <h5 class="titulo">{{ blog.data}}</h5>
-        <a href="{{ url_for('atualizar_cadastro_blog',id=blog.id_blog)}}"> EDITAR</a>
+        <a href="{{ url_for('atualizar_blog',id=blog.id_blog)}}"> EDITAR</a>
     </div>
     {% endfor %}
 

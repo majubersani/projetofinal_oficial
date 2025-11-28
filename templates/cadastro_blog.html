@@ -12,16 +12,16 @@
                 <form action="{{ url_for('cadastro_blog') }}" method="post">
                     <div class="mb-3">
                         <label class="form-label">Usuario_id</label>
-                        <input type="text" name="usuario_id" value="{{ usuario_id }}">
+                        <input type="text" name="usuario_id" value="{{ blog.usuario_id }}">
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">comentario</label>
+                        <label class="form-label">Comentario</label>
                         <input type="text" class="form-contro" placeholder="comentario" name="comentario">
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">titulo</label>
+                        <label class="form-label">Título</label>
                         <input type="text" class="form-control" placeholder="titulo" name="titulo">
                     </div>
 

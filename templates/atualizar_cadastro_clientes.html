@@ -2,53 +2,60 @@
 
 {% block conteudo %}
 
-<div class="d-flex flex-row">
-    <div class="w-100">
-        <div class="card_cadastro">
-            <form class="form">
-                <div class="form-row">
-                    <div class="mb-3 m-3 fonte">
-                        <label for="nome">Novo nome</label>
-                        <input id="nome" type="text" class="form-control is-invalid" placeholder="Novo nome" value="{{usuario.nome}}"
-                               required>
+<!-- Área principal -->
+<div class="container-fluid main-section py-5">
+    <div class="container form-box p-4">
+        <div class="row align-items-center">
+            <!-- Formulário -->
+            <div class="col-md-8">
+                <form action ="{{ url_for('cadastrar_usuario', id=usuario.id_usuario)}}" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Novo nome</label>
+                        <input type="text" class="form-control" placeholder="Novo nome" name="nome" value=" {{ usuario.nome }}">
                     </div>
-                    <div class="mb-3 m-3 fonte">
-                        <label for="email">Novo email</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                            </div>
-                            <input id="email" type="text" class="form-control is-invalid" placeholder="Novo email"  value="{{usuario.email}}"
-                                   aria-describedby="inputGroupPrepend3" required>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="mb-3 m-3 fonte">
-                        <label for="cpf">Novo CPF</label>
-                        <input id="cpf" type="text" class="form-control is-invalid" placeholder="Novo CPF"  value="{{usuario.CPF}}" required>
-                    </div>
-                    <div class="mb-3 m-3 fonte">
-                        <label for="senha">Nova senha</label>
-                        <input id="senha" type="text" class="form-control is-invalid" placeholder="Nova senha"  value="{{usuario.senha}}" required>
-                    </div>m
-                </div>
-                <div class="form-group">
-                    <div class="form-check m-3 fonte">
-                        <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
-                        <label class="form-check-label" for="invalidCheck3">
-                            Concordo com os termos e condições
-                        </label>
-                    </div>
-                </div>
-                <button class="btn btn-dark m-3 botao fonte" type="submit">Salvar</button>
-                <div class="btn btn-dark botao-contato text-light" onmousedown="limpaInput()">Limpar</div>
-            </form>
-        </div>
-    </div>
 
-    <div class="w-100">
-        <img src="static/img_cadastrocliente.svg">
+                    <div class="mb-3">
+                        <label class="form-label">Novo email</label>
+                        <input type="text" class="form-control" placeholder="Novo email" name="email" value=" {{usuario.email }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Novo CPF</label>
+                        <input type="text" class="form-control" placeholder="Novo CPF" name="cpf" value=" {{ usuario.cpf }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nova senha</label>
+                        <input type="text" class="form-control" placeholder="Nova senha" name="senha" value=" {{ usuario.senha }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Novo papel</label>
+                        <input type="text" class="form-control" placeholder="Novo papel" name="papel" value=" {{ usuario.papel }}">
+                    </div>
+
+<!--                    <div class="mb-3">-->
+<!--                        <label class="form-label">Confirmar senha</label>-->
+<!--                        <input type="text" class="form-control" placeholder="Confirmar senha">-->
+<!--                    </div>-->
+
+<!--                    <div class="mb-3">-->
+<!--                        <label class="form-label">Concordo com os termos e condições</label>-->
+<!--                        <input type="checkbox" class="form-control" placeholder="Confirmar senha">-->
+<!--                    </div>-->
+
+                    <button type="submit" class="btn btn-dark w-100">Atualizar</button>
+                </form>
+            </div>
+
+            <!-- Imagem lateral -->
+            <div class="col-md-4 text-center">
+                <div class="img-box p-2">
+                    <img src="/imagem/img_cadastro_cliente.png"
+                         class="img-fluid rounded" alt="">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

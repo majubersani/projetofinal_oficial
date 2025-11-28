@@ -11,7 +11,7 @@
         <h5 class="titulo">{{ usuario.email }}</h5>
         <h5 class="titulo">{{ usuario.password_hash }}</h5>
         <h5 class="titulo">{{ usuario.papel }}</h5>
-        <a href="{{ url_for('atualizar_cadastro_clientes',id=blog.id_blog)}}"> EDITAR</a>
+        <a href="{{ url_for('atualizar_usuario', id=usuario.id) }}">EDITAR</a>
     </div>
     {% endfor %}
 

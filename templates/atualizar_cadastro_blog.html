@@ -3,36 +3,53 @@
 {% block conteudo %}
 
 
-  <div class="card">
-    <div class="card-header">
-      Atualizar Cadastro de Blog / Vídeo
+<!-- Área principal -->
+<div class="container-fluid main-section-cartao py-5">
+    <div class="container form-box-cartao p-4">
+        <div class="row align-items-center">
+            <h2 class="titulo">Cadastro de blog</h2>
+            <!-- Formulário -->
+            <div class="col-md-8">
+                <form action="{{ url_for('cadastro_blog', id=blog.id_blog) }}" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Usuario_id</label>
+                        <input type="text" name="usuario_id" value="{{ blog.usuario_id }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Novo comentário</label>
+                        <input type="text" class="form-contro" placeholder="Novo comentário" name="comentario" value=" {{ blog.comentario }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Título</label>
+                        <input type="text" class="form-control" placeholder="titulo" name="titulo" value=" {{ blog.titulo }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Data</label>
+                        <input type="text" class="form-control" placeholder="data" name="data" value=" {{ blog.data }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Link video</label>
+                        <input type="text" class="form-control" placeholder="link_video" name="link_video" value=" {{ blog.link_video}}">
+                    </div>
+
+                    <button type="submit" class="btn btn-dark-cartao w-100">Atualizar</button>
+                </form>
+            </div>
+
+            <!-- Imagem lateral -->
+            <div class="col-md-4 text-center">
+                <div class="img-box-cartao p-2">
+                    <img src="{{ url_for('static', filename='imagens/img_cartao_de_credito.svg') }}"
+                         class="img-fluid rounded" alt="">
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="card-body">
-      <form>
-        <div class="mb-3">
-          <label for="titulo" class="form-label">Atualizar Título do Blog</label>
-          <input type="text" class="form-control" id="titulo" placeholder="Digite o título">
-        </div>
-
-        <div class="mb-3">
-          <label for="data" class="form-label">Atualizar Data</label>
-          <input type="date" class="form-control" id="data">
-        </div>
-
-        <div class="mb-3">
-          <label for="descricao" class="form-label">Atualizar Descrição</label>
-          <textarea class="form-control" id="descricao" rows="3" placeholder="Escreva uma breve descrição..."></textarea>
-        </div>
-
-        <div class="mb-3">
-          <label for="link" class="form-label">Atualizar Link do Vídeo</label>
-          <input type="url" class="form-control" id="link" placeholder="https://youtube.com/...">
-        </div>
-
-        <button type="submit" class="btn btn-success w-100">Atualizar Cadastro</button>
-      </form>
-    </div>
-  </div>
+</div>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -15,7 +15,7 @@ from rotas import (get_consulta_usuario, get_lista_blog, get_lista_produto, get_
                    get_consulta_movimentacao_id, post_cadastro_blog, post_cadastro_movimentacao, put_atualizar_produto,
                    put_atualizar_envio, put_atualizar_usuario, post_cadastrar_usuario, post_cadastro_cartao,
                    post_cadastro_envio, post_cadastro_produto, put_atualizar_cartao, post_cadastro_medicamento,
-                   get_grafico_mais_vendidos, get_lista_envio, put_atualizar_blog)
+                   get_grafico_mais_vendidos, get_lista_envio, put_atualizar_blog, get_consulta_envio_id)
 
 
 def verificar_login():
@@ -263,10 +263,12 @@ def atualizar_movimentacao(id):
                 else:
                     flash(response["erro"])
                 return  redirect(url_for('lista_movimentacao'))
+
         movimentacao = get_consulta_movimentacao_id(id)
         return render_template("atualizar_movimentacao.html", movimentacao=movimentacao)
     except Exception as e:
         flash(f"Erro ao atualizar: {str(e)}", "erro")
+        print("erro", e)
 
 
 @app.route("/cadastro/usuario", methods=["GET", "POST"])
@@ -275,22 +277,22 @@ def cadastrar_usuario():
         return redirect(url_for("pagina_inicial"))
     if request.method == "POST":
         nome = request.form.get("nome")
-        cpf = request.form.get("cpf")
+        CPF = request.form.get("cpf")
         email = request.form.get("email")
         senha = request.form.get("senha")
         papel = request.form.get("papel")
 
         print('nome', nome)
-        print('cpf', cpf)
+        print('cpf', CPF)
         print('email', email)
         print('senha', senha)
         print('papel', papel)
 
-        if nome and cpf and email and senha and papel:
+        if nome and CPF and email and senha and papel:
 
             print("antes api")
 
-            response = post_cadastrar_usuario(nome, cpf, email, senha, papel)
+            response = post_cadastrar_usuario(nome, CPF, email, senha, papel)
 
             print(response)
 
@@ -699,8 +701,10 @@ def lista_envio():
     dados = get_lista_envio()
     print("Dados recebidos:", dados)
 
-    if "envios" in dados:
-        envios = dados["envios"]
+    if "envio" in dados:
+        envios = dados["envio"]
+        print(envios)
+        return render_template("lista_infos_envio.html", envios=envios)
     else:
         if "erro" in dados:
             flash(dados["erro"])
@@ -708,7 +712,7 @@ def lista_envio():
             flash("Não foi possível listar os envios.")
         return redirect(url_for("index"))
 
-    return render_template("lista_infos_envio.html", envios=envios)
+
 
 @app.route("/lista/produto")
 def lista_produto():
@@ -732,8 +736,8 @@ def lista_blog():
     dados = get_lista_blog()
     print("Dados recebidos:", dados)
 
-    if "blogs" in dados:
-        blogs = dados["blogs"]
+    if "blog" in dados:
+        blogs = dados["blog"]
     else:
         if "erro" in dados:
             flash(dados["erro"])
@@ -766,16 +770,16 @@ def lista_movimentacao():
     dados = get_lista_movimentacao()
     print("Dados recebidos:", dados)
 
-    if "movimentacao" in dados:
-        movimentacao = dados["Movimentacao"]
+    if "movimentacoes" in dados:
+        movimentacoes = dados["movimentacoes"]
+        return render_template("lista_movimentacao.html", movimentacoes=movimentacoes)
     else:
         if "erro" in dados:
             flash(dados["erro"])
         else:
             flash("Não foi possível listar as movimentações.")
-        return redirect(url_for("index"))
 
-    return render_template("lista_movimentacao.html", movimentacoes=movimentacao)
+    return render_template("lista_movimentacao.html")
 
 
 @app.route('/atualizar/cartao/<int:id>', methods=["POST", "GET"])
@@ -809,11 +813,12 @@ def atualizar_cartao(id):
 
 @app.route('/atualizar/envio/<int:id>', methods=["POST", "GET"])
 def atualizar_envio(id):
-    global response
     if not token:
         return redirect(url_for("pagina_inicial"))
-    if request.method == "POST":
-        try:
+
+    try:
+        if request.method == "POST":
+
             # Atualiza os campos do produto
             nome_destinatario = request.form.get('nome_destinatario')
             endereco = request.form.get('endereco')
@@ -825,20 +830,24 @@ def atualizar_envio(id):
 
             if nome_destinatario and endereco and cidade and estado and CEP and telefone and email:
 
-                response = put_atualizar_envio(nome_destinatario, endereco, cidade, estado, CEP, telefone, email, id,
-                                               token)
+                response = put_atualizar_envio(nome_destinatario, endereco, cidade, estado, CEP, telefone, email)
                 print("mmm", response)
-                if response:
+                if 'mensagem' in response:
                     flash("Envio atualizado com sucesso!")
+                    return redirect(url_for("lista_envio"))
                 else:
                     flash(response["erro"])
-        except Exception as e:
-            flash(f"Erro ao atualizar: {str(e)}", "erro")
+                    return redirect(url_for("lista_envio"))
 
-    dados = response["Cartao"]
+        envio = get_consulta_envio_id(id)
+        print("passou")
+        return render_template("atualizar_infos_envio.html", envio=envio)
 
-    return render_template("atualizar_infos_envio.html", var_cartao=dados)
-
+    except Exception as e:
+        flash(f"Erro ao atualizar: {str(e)}", "erro")
+        print("erro", e)
+        return render_template("atualizar_infos_envio.html")
+    ###hhhhhh
 
 
 @app.route('/grafico', methods=['GET'])
@@ -896,43 +905,44 @@ def get_carrinho():
         session["carrinho"] = []
     return session["carrinho"]
 
-@app.route("/carrinho/adicionar/<int:id_produto>")
-def adicionar_carrinho(id_produto):
-    db = SessionLocal()
-    produto = db.query(Produto).filter_by(id_produto=id_produto).first()
 
-    if not produto:
-        return "Produto não encontrado", 404
-
-    carrinho = get_carrinho()
-    carrinho.append({
-        "id": produto.id_produto,
-        "nome": produto.nome_produto,
-        "preco": float(produto.preco_produto.replace(",", "."))
-    })
-
-    session["carrinho"] = carrinho
-
-    return redirect(url_for("mostrar_carrinho"))
-
-@app.route("/carrinho")
-def mostrar_carrinho():
-    carrinho = get_carrinho()
-    total = sum(item["preco"] for item in carrinho)
-    return render_template("carrinho.html", carrinho=carrinho, total=total)
-
-@app.route("/carrinho/remover/<int:index>")
-def remover_item(index):
-    carrinho = get_carrinho()
-    if 0 <= index < len(carrinho):
-        carrinho.pop(index)
-        session["carrinho"] = carrinho
-    return redirect(url_for("mostrar_carrinho"))
-
-@app.route("/carrinho/limpar")
-def limpar_carrinho():
-    session["carrinho"] = []
-    return redirect(url_for("mostrar_carrinho"))
+# @app.route("/carrinho/adicionar/<int:id_produto>")
+# def adicionar_carrinho(id_produto):
+#     db = SessionLocal()
+#     produto = db.query(Produto).filter_by(id_produto=id_produto).first()
+#
+#     if not produto:
+#         return "Produto não encontrado", 404
+#
+#     carrinho = get_carrinho()
+#     carrinho.append({
+#         "id": produto.id_produto,
+#         "nome": produto.nome_produto,
+#         "preco": float(produto.preco_produto.replace(",", "."))
+#     })
+#
+#     session["carrinho"] = carrinho
+#
+#     return redirect(url_for("mostrar_carrinho"))
+#
+# @app.route("/carrinho")
+# def mostrar_carrinho():
+#     carrinho = get_carrinho()
+#     total = sum(item["preco"] for item in carrinho)
+#     return render_template("carrinho.html", carrinho=carrinho, total=total)
+#
+# @app.route("/carrinho/remover/<int:index>")
+# def remover_item(index):
+#     carrinho = get_carrinho()
+#     if 0 <= index < len(carrinho):
+#         carrinho.pop(index)
+#         session["carrinho"] = carrinho
+#     return redirect(url_for("mostrar_carrinho"))
+#
+# @app.route("/carrinho/limpar")
+# def limpar_carrinho():
+#     session["carrinho"] = []
+#     return redirect(url_for("mostrar_carrinho"))
 
 
 if __name__ == '__main__':

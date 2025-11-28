@@ -1,6 +1,6 @@
 import requests
 
-url_mestra = f'http://127.0.0.1:5003'
+url_mestra = f'http://10.135.232.12:5003'
 
 # def token_required(f):
 #     @wraps(f)
@@ -23,7 +23,7 @@ def get_consulta_usuario(id):
     if response.status_code == 200:
         dados = response.json()
         print(dados)
-        return dados['Usuario']
+        return dados['usuario']
     else:
         print(f'erro:{response.status_code}')
         return {'erro': response.json()}
@@ -47,7 +47,7 @@ def get_consulta_blog_id(id):
     if response.status_code == 200:
         dados = response.json()
         print(dados)
-        return dados['Blog']
+        return dados['blog']
     else:
         print(f'erro:{response.status_code}')
         return {'erro': response.json()}
@@ -65,13 +65,25 @@ def get_consulta_pedido_id(id):
         return {'erro': response.json()}
 
 
+def get_consulta_envio_id(id):
+    url = f'{url_mestra}/consulta/envio/{id}'
+    response = requests.get(url)
+    if response.status_code == 200:
+        dados = response.json()
+        print(dados)
+        return dados['envio']
+    else:
+        print(f'erro:{response.status_code}')
+        return {'erro': response.json()}
+
+
 def get_consulta_movimentacao_id(id):
     url = f'{url_mestra}/consulta/movimentacao/{id}'
     response = requests.get(url)
     if response.status_code == 200:
         dados = response.json()
         print(dados)
-        return dados['Movimentacao']
+        return dados['movimentacao']
     else:
         print(f'erro:{response.status_code}')
         return {'erro': response.json()}
