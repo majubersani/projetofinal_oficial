@@ -7,7 +7,6 @@ import plotly.io as pio
 
 from flask import Flask, render_template, request, redirect, url_for, session
 
-
 from flask import Flask, render_template, redirect, url_for, flash, request, session
 import requests  # <-- CORRETO
 
@@ -26,7 +25,6 @@ def verificar_login():
 
 
 app = Flask(__name__)
-
 
 app.config['SECRET_KEY'] = 'secret!'
 
