@@ -144,4 +144,74 @@
   </div> <!-- fim row -->
 </div> <!-- fim container-fluid -->
 
+<script>
+// ================================
+// ABRIR DETALHE DO PRODUTO
+// ================================
+document.querySelectorAll(".ver-produto").forEach(btn => {
+    btn.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        // Captura os dados do produto
+        const nome = this.dataset.nome;
+        const preco = this.dataset.preco;
+        const imagem = this.dataset.imagem;
+        const uso = this.dataset.uso;
+        const parte = this.dataset.parte;
+        const forma = this.dataset.forma;
+        const descricao = this.dataset.descricao;
+
+        // Preenche os campos do detalhe
+        document.getElementById("detalhe-titulo").innerText = nome;
+        document.getElementById("detalhe-preco").innerText = preco;
+        document.getElementById("detalhe-img").src = imagem;
+        document.getElementById("detalhe-uso").innerText = uso;
+        document.getElementById("detalhe-parte").innerText = parte;
+        document.getElementById("detalhe-forma").innerText = forma;
+        document.getElementById("detalhe-descricao").innerText = descricao;
+
+        // Mostra detalhe e esconde lista
+        document.getElementById("produtos-lista").classList.add("d-none");
+        document.getElementById("detalhe-produto").classList.remove("d-none");
+    });
+});
+
+// ================================
+// VOLTAR PARA LISTA
+// ================================
+document.getElementById("btn-voltar").addEventListener("click", function () {
+    document.getElementById("detalhe-produto").classList.add("d-none");
+    document.getElementById("produtos-lista").classList.remove("d-none");
+});
+
+// ================================
+// ADICIONAR AO CARRINHO
+// ================================
+document.querySelector("#detalhe-produto .btn-success").addEventListener("click", function () {
+
+    const nome = document.getElementById("detalhe-titulo").innerText;
+    const precoTexto = document.getElementById("detalhe-preco").innerText;
+
+    const preco = precoTexto.replace("R$", "").replace(",", ".").trim();
+
+    const imagem = document.getElementById("detalhe-img").src;
+
+    // Envia para a rota /carrinho/adicionar do Flask
+    fetch("/carrinho/adicionar", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            nome: nome,
+            preco: preco,
+            imagem: imagem
+        })
+    })
+    .then(r => r.json())
+    .then(() => {
+        alert("Produto adicionado ao carrinho!");
+    });
+});
+</script>
+
+
 {% endblock conteudo %}

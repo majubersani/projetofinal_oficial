@@ -111,4 +111,92 @@
       </div>
     </section>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // pegar botões "Ver Produto"
+    const botoes = document.querySelectorAll(".ver-produto");
+
+    // áreas
+    const lista = document.getElementById("produtos-lista");
+    const detalhe = document.getElementById("detalhe-produto");
+
+    // elementos do detalhe
+    const img = document.getElementById("detalhe-img");
+    const titulo = document.getElementById("detalhe-titulo");
+    const preco = document.getElementById("detalhe-preco");
+    const uso = document.getElementById("detalhe-uso");
+    const parte = document.getElementById("detalhe-parte");
+    const forma = document.getElementById("detalhe-forma");
+    const descricao = document.getElementById("detalhe-descricao");
+
+    let produtoAtual = {};  // armazena o produto aberto
+
+    // Clicar em "Ver Produto"
+    botoes.forEach(btn => {
+        btn.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // guardar os dados
+            produtoAtual = {
+                nome: this.dataset.nome,
+                preco: this.dataset.preco,
+                imagem: this.dataset.imagem,
+                uso: this.dataset.uso,
+                parte: this.dataset.parte,
+                forma: this.dataset.forma,
+                descricao: this.dataset.descricao
+            };
+
+            // preencher a seção detalhe
+            img.src = produtoAtual.imagem;
+            titulo.textContent = produtoAtual.nome;
+            preco.textContent = produtoAtual.preco;
+            uso.textContent = produtoAtual.uso;
+            parte.textContent = produtoAtual.parte;
+            forma.textContent = produtoAtual.forma;
+            descricao.textContent = produtoAtual.descricao;
+
+            // troca de tela
+            lista.classList.add("d-none");
+            detalhe.classList.remove("d-none");
+        });
+    });
+
+    // voltar para a lista
+    document.getElementById("btn-voltar").addEventListener("click", function () {
+        detalhe.classList.add("d-none");
+        lista.classList.remove("d-none");
+    });
+
+    // botão adicionar ao carrinho
+    const btnCarrinho = detalhe.querySelector(".btn-success");
+
+    btnCarrinho.addEventListener("click", function () {
+        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+        // verificar se o item já existe
+        let existente = carrinho.find(p => p.nome === produtoAtual.nome);
+
+        if (existente) {
+            existente.quantidade += 1;
+        } else {
+            carrinho.push({
+                nome: produtoAtual.nome,
+                preco: produtoAtual.preco,
+                imagem: produtoAtual.imagem,
+                quantidade: 1
+            });
+        }
+
+        // salvar
+        localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+        alert("Produto adicionado ao carrinho!");
+    });
+
+});
+</script>
+
+
 {% endblock conteudo %}

@@ -10,6 +10,11 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from flask import Flask, render_template, redirect, url_for, flash, request, session
 import requests  # <-- CORRETO
 
+from flask import Flask, render_template, redirect, url_for, session
+from rotas import get_consulta_produto
+
+from flask import session, redirect, url_for, render_template
+
 from rotas import (get_consulta_usuario, get_lista_blog, get_lista_produto, get_lista_pedido, get_lista_movimentacao,
                    get_consulta_produto, get_lista_usuario, get_consulta_blog_id, get_consulta_pedido_id,
                    get_consulta_movimentacao_id, post_cadastro_blog, post_cadastro_movimentacao, put_atualizar_produto,
@@ -737,7 +742,7 @@ def lista_blog():
     print("Dados recebidos:", dados)
 
     if "blog" in dados:
-        blogs = dados["blog"]
+        blogg = dados["blog"]
     else:
         if "erro" in dados:
             flash(dados["erro"])
@@ -745,7 +750,7 @@ def lista_blog():
             flash("Não foi possível listar os blogs.")
         return redirect(url_for("index"))
 
-    return render_template("lista_blog.html", blogs=blogs)
+    return render_template("lista_blog.html", blogs=blogg)
 
 
 @app.route("/lista/pedido")
@@ -900,50 +905,56 @@ def grafico():
         flash(f"Erro ao gerar relatório: {str(e)}", "danger")
         return render_template("grafico.html", grafico_vendidos=None)
 
-def get_carrinho():
+
+def iniciar_carrinho():
     if "carrinho" not in session:
-        session["carrinho"] = []
-    return session["carrinho"]
+        session["carrinho"] = {}
 
-
-# @app.route("/carrinho/adicionar/<int:id_produto>")
-# def adicionar_carrinho(id_produto):
+# @app.route("/add_carrinho/<int:produto_id>")
+# def add_carrinho(produto_id):
+#     iniciar_carrinho()
+#
 #     db = SessionLocal()
-#     produto = db.query(Produto).filter_by(id_produto=id_produto).first()
+#     produto = db.query(Produto).filter_by(id=produto_id).first()
 #
 #     if not produto:
-#         return "Produto não encontrado", 404
+#         return redirect(url_for("loja"))
 #
-#     carrinho = get_carrinho()
-#     carrinho.append({
-#         "id": produto.id_produto,
-#         "nome": produto.nome_produto,
-#         "preco": float(produto.preco_produto.replace(",", "."))
-#     })
+#     carrinho = session["carrinho"]
 #
-#     session["carrinho"] = carrinho
+#     if str(produto_id) in carrinho:
+#         carrinho[str(produto_id)]["quantidade"] += 1
+#     else:
+#         carrinho[str(produto_id)] = {
+#             "nome": produto.nome,
+#             "preco": float(produto.preco),
+#             "quantidade": 1
+#         }
 #
-#     return redirect(url_for("mostrar_carrinho"))
-#
-# @app.route("/carrinho")
-# def mostrar_carrinho():
-#     carrinho = get_carrinho()
-#     total = sum(item["preco"] for item in carrinho)
-#     return render_template("carrinho.html", carrinho=carrinho, total=total)
-#
-# @app.route("/carrinho/remover/<int:index>")
-# def remover_item(index):
-#     carrinho = get_carrinho()
-#     if 0 <= index < len(carrinho):
-#         carrinho.pop(index)
-#         session["carrinho"] = carrinho
-#     return redirect(url_for("mostrar_carrinho"))
-#
-# @app.route("/carrinho/limpar")
-# def limpar_carrinho():
-#     session["carrinho"] = []
-#     return redirect(url_for("mostrar_carrinho"))
+#     session.modified = True
+#     return redirect(url_for("carrinho"))
+
+
+@app.route("/carrinho")
+def carrinho():
+    iniciar_carrinho()
+    carrinho = session["carrinho"]
+
+    total = sum(item["preco"] * item["quantidade"] for item in carrinho.values())
+
+    return render_template("carrinho.html", carrinho=carrinho, total_carrinho=total)
+
+
+@app.route("/remover_item/<int:produto_id>")
+def remover_item(produto_id):
+    iniciar_carrinho()
+
+    carrinho = session["carrinho"]
+    carrinho.pop(str(produto_id), None)
+
+    session.modified = True
+    return redirect(url_for("carrinho"))
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5008)

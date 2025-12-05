@@ -1,6 +1,7 @@
 import requests
+from requests import session
 
-url_mestra = f'http://10.135.232.12:5003'
+url_mestra = f'http://127.0.0.1:5009'
 
 # def token_required(f):
 #     @wraps(f)
@@ -604,3 +605,80 @@ def get_grafico_mais_vendidos(token):
     except Exception as e:
         return {"erro": str(e)}
 
+# INICIAR CARRINHO
+
+def iniciar_carrinho():
+    """Garante que o carrinho exista na sessão."""
+    if "carrinho" not in session:
+        session["carrinho"] = {}
+    return session["carrinho"]
+
+
+def adicionar_ao_carrinho(id_produto):
+    carrinho = iniciar_carrinho()
+
+    # Consulta produto na sua API mestra
+    produto = get_consulta_produto(id_produto)
+
+    if "erro" in produto:
+        return {"erro": "Produto não encontrado na API"}
+
+    produto_id = str(produto["id_produto"])
+
+    if produto_id not in carrinho:
+        carrinho[produto_id] = {
+            "id": produto["id_produto"],
+            "nome": produto["nome_produto"],
+            "preco": produto["preco_produto"],
+            "quantidade": 1,
+            "imagem": produto.get("imagem_url", "")
+        }
+    else:
+        carrinho[produto_id]["quantidade"] += 1
+
+    session.modified = True
+    return carrinho
+
+
+def remover_item_carrinho(id_produto):
+    carrinho = iniciar_carrinho()
+
+    id_produto = str(id_produto)
+
+    if id_produto in carrinho:
+        del carrinho[id_produto]
+
+    session.modified = True
+    return carrinho
+
+
+def alterar_quantidade(id_produto, nova_qtd):
+    carrinho = iniciar_carrinho()
+
+    id_produto = str(id_produto)
+    nova_qtd = int(nova_qtd)
+
+    if id_produto in carrinho:
+        if nova_qtd <= 0:
+            del carrinho[id_produto]
+        else:
+            carrinho[id_produto]["quantidade"] = nova_qtd
+
+    session.modified = True
+    return carrinho
+
+
+def limpar_carrinho():
+    session["carrinho"] = {}
+    session.modified = True
+    return {}
+
+
+def calcular_total():
+    carrinho = iniciar_carrinho()
+    total = 0
+
+    for item in carrinho.values():
+        total += float(item["preco"]) * int(item["quantidade"])
+
+    return round(total, 2)

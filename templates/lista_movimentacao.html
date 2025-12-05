@@ -2,18 +2,48 @@
 
 {% block conteudo %}
 
-<h5>Movimentacoes</h5>
-<div class="cards row justify-content-around">
+<h3 class="titulo mb-4 text-center">
+    <i class="bi bi-arrow-left-right me-2"></i>Movimentações
+</h3>
+
+<div class="row justify-content-center">
+
     {% for movimentacao in movimentacoes %}
 
-    <div class="align-items-center card col-3 m-4">
-        <h5 class="titulo">{{ movimentacao.usuario_id}}</h5>
-        <h5 class="titulo">{{ movimentacao.quantidade }}</h5>
-        <h5 class="titulo">{{ movimentacao.produto_id }}</h5>
-        <h5 class="titulo">{{ movimentacao.data }}</h5>
-        <h5 class="titulo">{{ movimentacao.status }}</h5>
-        <a href="{{ url_for('atualizar_movimentacao',id=movimentacao.ID_movimentacao)}}"> EDITAR</a>
+    <div class="card col-12 col-md-5 col-lg-3 m-3 shadow-sm border-0 rounded-4">
+
+        <div class="card-body text-center">
+
+            <h5 class="titulo fw-bold mb-2">Movimentação #{{ movimentacao.ID_movimentacao }}</h5>
+
+            <p class="mb-1 text-muted">Usuário ID: {{ movimentacao.usuario_id }}</p>
+            <p class="mb-1 text-muted">Quantidade: {{ movimentacao.quantidade }}</p>
+            <p class="mb-1 text-muted">Produto ID: {{ movimentacao.produto_id }}</p>
+            <p class="mb-1 text-muted">Data: {{ movimentacao.data }}</p>
+
+            <p class="mb-3 text-muted">
+                Status:
+                <span class="fw-bold
+                    {% if movimentacao.status == 'Entrada' %}
+                        text-success
+                    {% elif movimentacao.status == 'Saída' %}
+                        text-danger
+                    {% else %}
+                        text-secondary
+                    {% endif %}
+                ">
+                    {{ movimentacao.status }}
+                </span>
+            </p>
+
+            <a class="btn btn-outline-primary btn-sm px-4 rounded-3"
+               href="{{ url_for('atualizar_movimentacao', id=movimentacao.ID_movimentacao) }}">
+                Editar
+            </a>
+
+        </div>
     </div>
+
     {% endfor %}
 
 </div>

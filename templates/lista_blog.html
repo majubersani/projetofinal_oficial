@@ -2,20 +2,44 @@
 
 {% block conteudo %}
 
-<h5>Blog</h5>
-<div class="cards row justify-content-around">
+<h3 class="titulo mb-4 text-center">
+    <i class="bi bi-journal-text me-2"></i>Blog
+</h3>
+
+<div class="row justify-content-center">
+
     {% for blog in blogs %}
 
-    <div class="align-items-center card col-3 m-4">
-        <h5 class="titulo">{{ blog.usuario_id}}</h5>
-        <h5 class="titulo">{{ blog.titulo}}</h5>
-        <h5 class="titulo">{{ blog.comentario}}</h5>
-        <h5 class="titulo">{{ blog.data}}</h5>
-        <a href="{{ url_for('atualizar_blog',id=blog.id_blog)}}"> EDITAR</a>
+    <div class="card col-12 col-md-5 col-lg-3 m-3 shadow-sm border-0 rounded-4">
+
+        <div class="card-body text-center">
+
+            <h5 class="titulo fw-bold mb-2">{{ blog.usuario_id }}</h5>
+            <h6 class="text-muted mb-2">{{ blog.titulo }}</h6>
+
+            <p class="mb-3" style="font-size: 14px;">
+                {{ blog.comentario }}
+            </p>
+
+            <p class="text-secondary mb-3" style="font-size: 13px;">
+                {{ blog.data }}
+            </p>
+
+            <a class="btn btn-outline-primary btn-sm px-4 rounded-3"
+               href="{{ url_for('atualizar_blog', id=blog.id_blog) }}">
+                Editar
+            </a>
+
+        </div>
     </div>
+
     {% endfor %}
 
 </div>
 
-
 {% endblock conteudo %}
+
+
+
+
+

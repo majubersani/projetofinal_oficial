@@ -2,28 +2,42 @@
 
 {% block conteudo %}
 
-<h5>Produtos</h5>
-<div class="cards row justify-content-around">
+<h3 class="titulo mb-4 text-center">
+    <i class="bi bi-box-seam me-2"></i>Produtos
+</h3>
+
+<div class="row justify-content-center">
+
     {% for produto in produtos %}
 
-    <div class="align-items-center card col-3 m-4">
-        <h5 class="titulo">{{ produto.nome_produto }}</h5>
-        <h5 class="titulo">{{ produto.preco_produto }}</h5>
-        <h5 class="titulo">{{ produto.categoria_produto }}</h5>
-        <h5 class="titulo">{{ produto.descricao_produto }}</h5>
-        <h5 class="titulo">{{ produto.fabricante_produto }}</h5>
-        <h5 class="titulo">{{ produto.dimensao_produto }}</h5>
-        <h5 class="titulo">{{ produto.peso_produto }}</h5>
-        <h5 class="titulo">{{ produto.cor_produto }}</h5>7
-        <h5 class="titulo">{{ produto.uso }}</h5>
-        <h5 class="titulo">{{ produto.parte_utilizada }}</h5>
-        <h5 class="titulo">{{ produto.forma_uso }}</h5>
-        <h5 class="titulo">{{ produto.imagem_produto }}</h5>
-        <a href="{{ url_for('atualizar_produto',id=produto.id_produto)}}"> EDITAR</a>
+    <div class="card col-12 col-md-5 col-lg-3 m-3 shadow-sm border-0 rounded-4">
+
+        <div class="card-body text-center">
+
+            <h5 class="titulo fw-bold mb-2">{{ produto.nome_produto }}</h5>
+
+            <p class="mb-1 text-muted">Preço: R$ {{ produto.preco_produto }}</p>
+            <p class="mb-1 text-muted">Categoria: {{ produto.categoria_produto }}</p>
+            <p class="mb-1 text-muted">Descrição: {{ produto.descricao_produto }}</p>
+            <p class="mb-1 text-muted">Fabricante: {{ produto.fabricante_produto }}</p>
+            <p class="mb-1 text-muted">Dimensão: {{ produto.dimensao_produto }}</p>
+            <p class="mb-1 text-muted">Peso: {{ produto.peso_produto }}</p>
+            <p class="mb-1 text-muted">Cor: {{ produto.cor_produto }}</p>
+            <p class="mb-1 text-muted">Uso: {{ produto.uso }}</p>
+            <p class="mb-1 text-muted">Parte Utilizada: {{ produto.parte_utilizada }}</p>
+            <p class="mb-1 text-muted">Forma de Uso: {{ produto.forma_uso }}</p>
+            <p class="mb-3 text-muted">Imagem: {{ produto.imagem_produto }}</p>
+
+            <a class="btn btn-outline-primary btn-sm px-4 rounded-3"
+               href="{{ url_for('atualizar_produto', id=produto.id_produto) }}">
+                Editar
+            </a>
+
+        </div>
     </div>
+
     {% endfor %}
 
 </div>
-
 
 {% endblock conteudo %}

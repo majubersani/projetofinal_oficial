@@ -2,20 +2,36 @@
 
 {% block conteudo %}
 
-<div class="cards row justify-content-around">
+<h3 class="titulo mb-4 text-center">
+    <i class="bi bi-truck me-2"></i>Informações de Envio
+</h3>
+
+<div class="row justify-content-center">
+
     {% for envio in envios %}
 
-    <div class="align-items-center card col-3 m-4">
-        <h5 class="titulo">{{ envio.usuario_id }}</h5>
-        <h5 class="titulo">{{ envio.nome_destinatario }}</h5>
-        <h5 class="titulo">{{ envio.endereco }}</h5>
-        <h5 class="titulo">{{ envio.cidade }}</h5>
-        <h5 class="titulo">{{ envio.estado }}</h5>
-        <h5 class="titulo">{{ envio.CEP }}</h5>
-        <h5 class="titulo">{{ envio.telefone }}</h5>
-        <h5 class="titulo">{{ envio.email }}</h5>
-        <a href="{{ url_for('atualizar_envio',id=envio.id_envio)}}"> EDITAR</a>
+    <div class="card col-12 col-md-5 col-lg-3 m-3 shadow-sm border-0 rounded-4">
+
+        <div class="card-body text-center">
+
+            <h5 class="titulo fw-bold mb-2">{{ envio.nome_destinatario }}</h5>
+
+            <p class="mb-1 text-muted">Usuário ID: {{ envio.usuario_id }}</p>
+            <p class="mb-1 text-muted">Endereço: {{ envio.endereco }}</p>
+            <p class="mb-1 text-muted">Cidade: {{ envio.cidade }}</p>
+            <p class="mb-1 text-muted">Estado: {{ envio.estado }}</p>
+            <p class="mb-1 text-muted">CEP: {{ envio.CEP }}</p>
+            <p class="mb-1 text-muted">Telefone: {{ envio.telefone }}</p>
+            <p class="mb-3 text-muted">Email: {{ envio.email }}</p>
+
+            <a class="btn btn-outline-primary btn-sm px-4 rounded-3"
+               href="{{ url_for('atualizar_envio', id=envio.id_envio) }}">
+                Editar
+            </a>
+
+        </div>
     </div>
+
     {% endfor %}
 
 </div>

@@ -2,20 +2,42 @@
 
 {% block conteudo %}
 
-<div class="cards row justify-content-around">
+<h3 class="titulo mb-4 text-center">
+    <i class="bi bi-people me-2"></i>Usuários
+</h3>
+
+<div class="row justify-content-center">
+
     {% for usuario in usuarios %}
 
-    <div class="align-items-center card col-3 m-4">
-        <h5 class="titulo">{{ usuario.nome }}</h5>
-        <h5 class="titulo">{{ usuario.cpf }}</h5>
-        <h5 class="titulo">{{ usuario.email }}</h5>
-        <h5 class="titulo">{{ usuario.password_hash }}</h5>
-        <h5 class="titulo">{{ usuario.papel }}</h5>
-        <a href="{{ url_for('atualizar_usuario', id=usuario.id) }}">EDITAR</a>
+    <div class="card col-12 col-md-5 col-lg-3 m-3 shadow-sm border-0 rounded-4">
+
+        <div class="card-body text-center">
+
+            <h5 class="titulo fw-bold mb-2">{{ usuario.nome }}</h5>
+
+            <p class="mb-1 text-muted">CPF: {{ usuario.cpf }}</p>
+            <p class="mb-1 text-muted">Email: {{ usuario.email }}</p>
+            <p class="mb-1 text-muted">Senha Hash: {{ usuario.password_hash }}</p>
+            <p class="mb-3 text-muted">Papel: {{ usuario.papel }}</p>
+
+            <a class="btn btn-outline-primary btn-sm px-4 rounded-3"
+               href="{{ url_for('atualizar_usuario', id=usuario.id) }}">
+                Editar
+            </a>
+
+        </div>
     </div>
+
     {% endfor %}
 
 </div>
 
 {% endblock conteudo %}
+
+
+
+
+
+
 
