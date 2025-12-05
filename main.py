@@ -5,22 +5,13 @@ import pandas as pd
 import plotly.express as px
 import plotly.io as pio
 
-from flask import Flask, render_template, request, redirect, url_for, session
-
-from flask import Flask, render_template, redirect, url_for, flash, request, session
+from flask import Flask,  request, flash, redirect, url_for, render_template,session
 import requests  # <-- CORRETO
 
-from flask import Flask, render_template, redirect, url_for, session
+
 from rotas import get_consulta_produto
 
-from flask import session, redirect, url_for, render_template
-
-from rotas import (get_consulta_usuario, get_lista_blog, get_lista_produto, get_lista_pedido, get_lista_movimentacao,
-                   get_consulta_produto, get_lista_usuario, get_consulta_blog_id, get_consulta_pedido_id,
-                   get_consulta_movimentacao_id, post_cadastro_blog, post_cadastro_movimentacao, put_atualizar_produto,
-                   put_atualizar_envio, put_atualizar_usuario, post_cadastrar_usuario, post_cadastro_cartao,
-                   post_cadastro_envio, post_cadastro_produto, put_atualizar_cartao, post_cadastro_medicamento,
-                   get_grafico_mais_vendidos, get_lista_envio, put_atualizar_blog, get_consulta_envio_id)
+from rotas import *
 
 
 def verificar_login():
@@ -42,15 +33,17 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        email = request.form('email')
-        password = request.form('password')
-        print(email, password, 'EMAILSENHA')
-        usuario = login(email, password)
-        print(usuario)
+        email_ = request.form.get('email')
+        senha_ = request.form.get('senha')
+        print(email_, senha_, 'EMAILSENHA')
+        usuario = post_login(email_, senha_)
+        print('tgf',usuario, type(usuario))
+
         if 'access_token' in usuario:
             session['token'] = usuario['access_token']
             session['username'] = usuario['nome']
             session['papel'] = usuario['papel']
+            print('eyu',session)
 
             if session['papel'] == 'admin':
                 flash('Seja bem vind admistrador', 'success')

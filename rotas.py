@@ -403,17 +403,16 @@ def post_cadastro_pedido(id, produto_id, vendedor_id, quantidade,
         return {"erro": response.json()}
 
 
-def post_login(email, password):
-    url = f'{url_mestra}/login/'
+def post_login(email_, password_):
+    url = f'{url_mestra}/login'
     input_login = {
-        'email': email,
-        'password': password
+        'email': email_,
+        'senha': password_
     }
     response = requests.post(url, json=input_login)
     if response.status_code == 200:
         dados = response.json()
-        print(f'email:{dados["email"]}\n')
-        print(f'password:{dados["password"]}\n')
+        print(f'email:{dados}\n')
         return dados
     else:
         print(f"erro:{response.status_code}")

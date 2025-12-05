@@ -10,20 +10,17 @@
 
   <div class="login-card shadow-lg p-4 rounded-4 text-center">
     <h2 class="titulo-login mb-4">Bem-vindo(a) 🌿</h2>
-    <form>
-      <div class="mb-3 text-start">
-        <label for="nome" class="form-label fw-semibold">Nome</label>
-        <input id="nome" type="text" class="form-control" placeholder="Digite seu nome" required>
-      </div>
+    <form action="{{url_for('login')}}" method="POST">
+
 
       <div class="mb-3 text-start">
-        <label for="cpf" class="form-label fw-semibold">CPF</label>
-        <input id="cpf" type="text" class="form-control" placeholder="Digite seu CPF" required>
+        <label for="email" class="form-label fw-semibold">Email</label>
+        <input id="email" type="text" name="email" class="form-control" placeholder="Digite seu Email" required>
       </div>
 
       <div class="mb-3 text-start">
         <label for="senha" class="form-label fw-semibold">Senha</label>
-        <input id="senha" type="password" class="form-control" placeholder="Digite sua senha" required>
+        <input id="senha" type="password" name="senha" class="form-control" placeholder="Digite sua senha" required>
       </div>
 
       <div class="form-check text-start mb-3">
